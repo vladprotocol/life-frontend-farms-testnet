@@ -61,7 +61,7 @@ const App: React.FC = () => {
             {/*  <Ifos /> */}
             {/* </Route> */}
             <Route path="/nft">
-            <Nft />
+              <Nft />
             </Route>
             {/* Redirect */}
             {/* <Route path="/staking"> */}

@@ -37,7 +37,7 @@ const StatusCard = () => {
     return <Text>...</Text>
   }
 
-  if (!hasClaimed ) {
+  if (!hasClaimed) {
     return <YouWonCard />
   }
 

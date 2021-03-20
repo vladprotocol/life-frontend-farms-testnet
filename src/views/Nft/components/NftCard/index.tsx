@@ -119,7 +119,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     <TransferNftModal nft={nft} tokenIds={tokenIds} onSuccess={handleSuccess} />,
   )
 
-  console.log(isInitialized, walletCanClaim, isSupplyAvailable);
+  console.log(isInitialized, walletCanClaim, isSupplyAvailable)
 
   return (
     <Card isActive={walletOwnsNft}>

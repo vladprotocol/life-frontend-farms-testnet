@@ -8,14 +8,14 @@ import { usePriceCakeBusd } from 'state/hooks'
 import { Menu as UikitMenu } from '@pancakeswap-libs/uikit'
 import config from './config'
 import './style.css'
-import bscscanLogo from './bscscan.png';
-import pancakeLogo from './pancake.png';
-import telegramLogo from './telegram.svg';
-import twitterLogo from './twitter.svg';
-import mediumLogo from './medium.svg';
-import vladLogo from './vlad-circle.png';
-import bgFooter from './bg-footer.jpg';
-import soundCloudLogo from './soundcloud.png';
+import bscscanLogo from './bscscan.png'
+import pancakeLogo from './pancake.png'
+import telegramLogo from './telegram.svg'
+import twitterLogo from './twitter.svg'
+import mediumLogo from './medium.svg'
+import vladLogo from './vlad-circle.png'
+import bgFooter from './bg-footer.jpg'
+import soundCloudLogo from './soundcloud.png'
 
 const Sticky = styled.div`
   position: fixed;
@@ -87,7 +87,7 @@ const LiveLink = styled.a`
 `
 
 const SocialLink = styled.a`
-  color:"white";
+  color: 'white';
 `
 
 const AudioArtist = styled.a`
@@ -123,42 +123,33 @@ const Menu = (props) => {
   return (
     <div>
       <Sticky>
-        <Head href="https://vlad.finance" target="_blank">VLAD.FINANCE</Head>
-          <InlineDiv>
-            <AudioArtist>Listen to DJ Ezra live from Vladhalla!</AudioArtist>
-            <AudioPlayer controls>
-              <source src= "./vlad.mp3" type="audio/mp3"/>
-                <track kind="captions" />
-            </AudioPlayer>
-            <AudioArtist href="https://soundcloud.com/dj_ezra_is_back/dj-ezra-live-vladhalla-the/s-RaJwB2A8UaP?p=a&c=1&utm_source=other&utm_medium=text&utm_campaign=social_sharing">More DJ Ezra
-            </AudioArtist>
-            <SocialHeaderLink
-              link="https://soundcloud.com/dj_ezra_is_back/dj-ezra-live-vladhalla-the/s-RaJwB2A8UaP?p=a&c=1&utm_source=other&utm_medium=text&utm_campaign=social_sharing"
-              src={soundCloudLogo}
-              alt="soundcloud"
+        <Head href="https://vlad.finance" target="_blank">
+          VLAD.FINANCE
+        </Head>
+        <InlineDiv>
+          <AudioArtist>Listen to DJ Ezra live from Vladhalla!</AudioArtist>
+          <AudioPlayer controls>
+            <source src="./vlad.mp3" type="audio/mp3" />
+            <track kind="captions" />
+          </AudioPlayer>
+          <AudioArtist href="https://soundcloud.com/dj_ezra_is_back/dj-ezra-live-vladhalla-the/s-RaJwB2A8UaP?p=a&c=1&utm_source=other&utm_medium=text&utm_campaign=social_sharing">
+            More DJ Ezra
+          </AudioArtist>
+          <SocialHeaderLink
+            link="https://soundcloud.com/dj_ezra_is_back/dj-ezra-live-vladhalla-the/s-RaJwB2A8UaP?p=a&c=1&utm_source=other&utm_medium=text&utm_campaign=social_sharing"
+            src={soundCloudLogo}
+            alt="soundcloud"
           />
         </InlineDiv>
-        <SocialHeader>   
+        <SocialHeader>
           <SocialHeaderLink
             link="https://bscscan.com/token/0x50f4220C82c9325dC99f729C3328FB5c338BEaae"
             src={vladLogo}
             alt="life"
           />
-          <SocialHeaderLink
-            link="https://t.me/VladFinanceOfficial"
-            src={telegramLogo}
-            alt="telegram"
-          />
-          <SocialHeaderLink
-            link="https://vlad-finance.medium.com"
-            src={mediumLogo}
-            alt="medium"
-          />
-          <SocialHeaderLink
-            link="https://twitter.com/VladFinance"
-            src={twitterLogo}
-            alt="twitter"
-          />
+          <SocialHeaderLink link="https://t.me/VladFinanceOfficial" src={telegramLogo} alt="telegram" />
+          <SocialHeaderLink link="https://vlad-finance.medium.com" src={mediumLogo} alt="medium" />
+          <SocialHeaderLink link="https://twitter.com/VladFinance" src={twitterLogo} alt="twitter" />
           <SocialHeaderLink
             link="https://bscscan.com/token/0x279d41f3f78fe5c1f0ba41ae963d6e545113c973"
             src={bscscanLogo}
@@ -187,27 +178,15 @@ const Menu = (props) => {
         />
       </Container>
       <Footer>
-        <SocialFooter>  
+        <SocialFooter>
           <SocialFooterLink
             link="https://bscscan.com/token/0x50f4220C82c9325dC99f729C3328FB5c338BEaae"
             src={vladLogo}
             alt="life"
           />
-          <SocialFooterLink
-            link="https://t.me/VladFinanceOfficial"
-            src={telegramLogo}
-            alt="telegram"
-          />
-          <SocialFooterLink
-            link="https://vlad-finance.medium.com"
-            src={mediumLogo}
-            alt="medium"
-          />
-          <SocialFooterLink
-            link="https://twitter.com/VladFinance"
-            src={twitterLogo}
-            alt="twitter"
-          />
+          <SocialFooterLink link="https://t.me/VladFinanceOfficial" src={telegramLogo} alt="telegram" />
+          <SocialFooterLink link="https://vlad-finance.medium.com" src={mediumLogo} alt="medium" />
+          <SocialFooterLink link="https://twitter.com/VladFinance" src={twitterLogo} alt="twitter" />
           <SocialFooterLink
             link="https://bscscan.com/token/0x279d41f3f78fe5c1f0ba41ae963d6e545113c973"
             src={bscscanLogo}

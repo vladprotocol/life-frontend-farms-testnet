@@ -10,11 +10,20 @@ export const PANCAKE_RABBITS_ADDRESS = '0x7CCCF5b0EBe07317F726F880BBB2a646198168
 
 const Nfts: Nft[] = [
   {
-    name: 'test',
-    description: 'test 1',
-    originalImage: 'https://gateway.pinata.cloud/ipfs/QmXdHqg3nywpNJWDevJQPtkz93vpfoHcZWQovFz2nmtPf5/swapsies.png',
-    previewImage: 'swapsies-preview.png',
-    blurImage: 'swapsies-blur.png',
+    name: 'test 2',
+    description: 'test 2',
+    originalImage: 'nft1.jpg',
+    previewImage: 'nft1.jpg',
+    blurImage: 'nft2.jpg',
+    sortOrder: 0,
+    bunnyId: 0,
+  },
+  {
+    name: 'test 3',
+    description: 'test 3',
+    originalImage: 'nft2.mp4',
+    previewImage: 'vlad1.gif',
+    blurImage: 'vlad2.gif',
     sortOrder: 0,
     bunnyId: 0,
   },
