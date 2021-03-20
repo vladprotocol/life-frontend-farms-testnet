@@ -61,7 +61,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const TranslateString = useI18n()
   const {
     isInitialized,
-    canClaim,
     hasClaimed,
     canBurnNft,
     totalSupplyDistributed,
@@ -69,7 +68,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     getTokenIds,
     reInitialize,
   } = useContext(NftProviderContext)
-  const walletCanClaim = canClaim && !hasClaimed
+  const walletCanClaim = !hasClaimed
   const { bunnyId, name, previewImage, originalImage, description } = nft
   const tokenIds = getTokenIds(bunnyId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed
@@ -119,6 +118,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const [onPresentTransferModal] = useModal(
     <TransferNftModal nft={nft} tokenIds={tokenIds} onSuccess={handleSuccess} />,
   )
+
+  console.log(isInitialized, walletCanClaim, isSupplyAvailable);
 
   return (
     <Card isActive={walletOwnsNft}>

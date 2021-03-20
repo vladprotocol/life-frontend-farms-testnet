@@ -17,7 +17,6 @@ type BunnyMap = {
 
 type State = {
   isInitialized: boolean
-  canClaim: boolean
   hasClaimed: boolean
   countBunniesBurnt: number
   endBlockNumber: number
@@ -40,7 +39,6 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
   const isMounted = useRef(true)
   const [state, setState] = useState<State>({
     isInitialized: false,
-    canClaim: false,
     hasClaimed: false,
     countBunniesBurnt: 0,
     startBlockNumber: 0,
@@ -102,12 +100,10 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     const fetchContractData = async () => {
       try {
         const pancakeRabbitsContract = getPancakeRabbitContract()
-        const [canClaimArr, hasClaimedArr] = await multicall(rabbitmintingfarm, [
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'canClaim', params: [account] },
+        const [hasClaimedArr] = await multicall(rabbitmintingfarm, [
           { address: RABBIT_MINTING_FARM_ADDRESS, name: 'hasClaimed', params: [account] },
         ])
         const balanceOf = await pancakeRabbitsContract.methods.balanceOf(account).call()
-        const [canClaim]: [boolean] = canClaimArr
         const [hasClaimed]: [boolean] = hasClaimedArr
 
         let bunnyMap: BunnyMap = {}
@@ -153,7 +149,6 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
         setState((prevState) => ({
           ...prevState,
           isInitialized: true,
-          canClaim,
           hasClaimed,
           balanceOf,
           bunnyMap,
