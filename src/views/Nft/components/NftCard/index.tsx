@@ -14,10 +14,11 @@ import {
 } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import { Nft } from 'config/constants/types'
+import { AMOUNT_TO_CLAIM } from 'config/constants/nfts'
 import InfoRow from '../InfoRow'
 import Image from '../Image'
 import { NftProviderContext } from '../../contexts/NftProvider'
-import { getPancakeRabbitContract } from '../../utils/contracts'
+import { getNftContract } from '../../utils/contracts'
 import ClaimNftModal from '../ClaimNftModal'
 import BurnNftModal from '../BurnNftModal'
 import TransferNftModal from '../TransferNftModal'
@@ -55,8 +56,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const [state, setState] = useState({
     isLoading: false,
     isOpen: false,
-    bunnyCount: 0,
-    bunnyBurnCount: 0,
+    nftCount: 0,
+    nftBurnCount: 0,
   })
   const TranslateString = useI18n()
   const {
@@ -69,8 +70,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     reInitialize,
   } = useContext(NftProviderContext)
   const walletCanClaim = !hasClaimed
-  const { bunnyId, name, previewImage, originalImage, description } = nft
-  const tokenIds = getTokenIds(bunnyId)
+  const { nftId, name, previewImage, originalImage, description } = nft
+  const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed
   const walletOwnsNft = tokenIds && tokenIds.length > 0
   const Icon = state.isOpen ? ChevronUpIcon : ChevronDownIcon
@@ -78,21 +79,21 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const fetchDetails = useCallback(async () => {
     setState((prevState) => ({ ...prevState, isLoading: true }))
     try {
-      const { methods } = getPancakeRabbitContract()
-      const bunnyCount = await methods.bunnyCount(bunnyId).call()
-      const bunnyBurnCount = await methods.bunnyBurnCount(bunnyId).call()
+      const { methods } = getNftContract()
+      const nftCount = await methods.nftCount(nftId).call()
+      const nftBurnCount = await methods.nftBurnCount(nftId).call()
 
       setState((prevState) => ({
         ...prevState,
         isLoading: false,
         isDataFetched: true,
-        bunnyCount: parseInt(bunnyCount, 10),
-        bunnyBurnCount: parseInt(bunnyBurnCount, 10),
+        nftCount: parseInt(nftCount, 10),
+        nftBurnCount: parseInt(nftBurnCount, 10),
       }))
     } catch (error) {
       console.error(error)
     }
-  }, [bunnyId])
+  }, [nftId])
 
   const handleClick = async () => {
     if (state.isOpen) {
@@ -150,7 +151,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (
           <Button variant="danger" fullWidth onClick={onPresentBurnModal} mt="24px">
-            {TranslateString(999, 'Trade in for CAKE')}
+            {TranslateString(999, 'Trade in for LIFE')}
           </Button>
         )}
       </CardBody>
@@ -165,15 +166,15 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             </Text>
             <InfoRow>
               <Text>{TranslateString(999, 'Value if traded in')}:</Text>
-              <Value>10 CAKE</Value>
+              <Value>10 LIFE</Value>
             </InfoRow>
             <InfoRow>
               <Text>{TranslateString(999, 'Number minted')}:</Text>
-              <Value>{state.bunnyCount + state.bunnyBurnCount}</Value>
+              <Value>{state.nftCount + state.nftBurnCount}</Value>
             </InfoRow>
             <InfoRow>
               <Text>{TranslateString(999, 'Number burned')}:</Text>
-              <Value>{state.bunnyBurnCount}</Value>
+              <Value>{state.nftBurnCount}</Value>
             </InfoRow>
           </InfoBlock>
         )}

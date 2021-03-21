@@ -48,7 +48,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Roadmap',
-        href: 'https://vlad-finance.medium.com/introducing-vlad-token-and-the-path-to-immortality-ce96990fdf66/',
+        href: 'https://vlad-finance.medium.com/roadmap/',
       },
     ],
   },

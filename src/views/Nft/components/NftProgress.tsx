@@ -34,13 +34,14 @@ const NftProgress = () => {
     isInitialized,
     currentDistributedSupply,
     totalSupplyDistributed,
-    countBunniesBurnt,
+    countBurnt,
     startBlockNumber,
     endBlockNumber,
   } = useContext(NftProviderContext)
   const TranslateString = useI18n()
   const currentBlock = useBlock()
   const secondsRemaining = (endBlockNumber - currentBlock) * BSC_BLOCK_TIME
+
   const timeLeft = formatTimePeriod(getTimePeriods(secondsRemaining), ['seconds'])
   const totalBlocks = endBlockNumber - startBlockNumber
   const progress = currentBlock > startBlockNumber ? ((currentBlock - startBlockNumber) / totalBlocks) * 100 : 5
@@ -63,7 +64,7 @@ const NftProgress = () => {
         <InfoRow>
           <Text>{TranslateString(999, "Total NFT's burned")}:</Text>
           <Text>
-            <strong>{!isInitialized ? '...' : `${countBunniesBurnt}/${totalSupplyDistributed}`}</strong>
+            <strong>{!isInitialized ? '...' : `${countBurnt}/${totalSupplyDistributed}`}</strong>
           </Text>
         </InfoRow>
         <InfoRow>

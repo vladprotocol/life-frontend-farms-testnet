@@ -82,5 +82,8 @@ export type Nft = {
   previewImage: string
   blurImage: string
   sortOrder: number
-  bunnyId: number
+  nftId: number
+  tokenAmount: number
+  nftFarmContract: string
+  nftContract: string
 }

@@ -1,12 +1,13 @@
 import { Nft } from './types'
 
 // mainnet
-// export const RABBIT_MINTING_FARM_ADDRESS = '0x7c8b60d2b859a38c8B9b5B6CB4565485cb637c7a'
-// export const PANCAKE_RABBITS_ADDRESS = '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07'
+// export const NftFarm = '0x7c8b60d2b859a38c8B9b5B6CB4565485cb637c7a'
+// export const NFT = '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07'
 
 // testnet
-export const RABBIT_MINTING_FARM_ADDRESS = '0x618752b56a667486f407d5aE4d2171622e6D2c1B' // VladMintingFarm
-export const PANCAKE_RABBITS_ADDRESS = '0x7CCCF5b0EBe07317F726F880BBB2a64619816836' // VladCoffin
+export const NftFarm = '0x8CD0Fc72eB4Cc5952c89C1c38d0217432E65eD81'
+export const NFT = '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea'
+export const AMOUNT_TO_CLAIM = '10'
 
 const Nfts: Nft[] = [
   {
@@ -16,7 +17,10 @@ const Nfts: Nft[] = [
     previewImage: 'nft1.jpg',
     blurImage: 'nft2.jpg',
     sortOrder: 0,
-    bunnyId: 0,
+    nftId: 0,
+    tokenAmount: 10,
+    nftFarmContract: '0x8CD0Fc72eB4Cc5952c89C1c38d0217432E65eD81',
+    nftContract: '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea'
   },
   {
     name: 'test 3',
@@ -24,8 +28,11 @@ const Nfts: Nft[] = [
     originalImage: 'nft2.mp4',
     previewImage: 'vlad1.gif',
     blurImage: 'vlad2.gif',
-    sortOrder: 0,
-    bunnyId: 0,
+    sortOrder: 1,
+    nftId: 1,
+    tokenAmount: 10,
+    nftFarmContract: '0x8CD0Fc72eB4Cc5952c89C1c38d0217432E65eD81',
+    nftContract: '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea'
   },
 ]
 

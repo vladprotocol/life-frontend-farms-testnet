@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Button, Modal, Text } from '@pancakeswap-libs/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { RABBIT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
+import { NftFarm, AMOUNT_TO_CLAIM } from 'config/constants/nfts'
 import { getCakeAddress } from 'utils/addressHelpers'
 import { Nft } from 'config/constants/types'
 import useTokenBalance from 'hooks/useTokenBalance'
@@ -36,14 +36,14 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
   const [error, setError] = useState(null)
   const TranslateString = useI18n()
   const { account } = useWallet()
-  const rabbitMintingContract = useRabbitMintingFarm(RABBIT_MINTING_FARM_ADDRESS)
+  const nftMintingContract = useRabbitMintingFarm(NftFarm)
   const cakeBalance = useTokenBalance(getCakeAddress())
   const cakeInWallet = getBalanceNumber(cakeBalance)
 
   const handleConfirm = async () => {
     try {
-      await rabbitMintingContract.methods
-        .mintNFT(nft.bunnyId)
+      await nftMintingContract.methods
+        .mintNFT(nft.nftId)
         .send({ from: account })
         .on('sending', () => {
           setIsLoading(true)
@@ -64,12 +64,12 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
 
   useEffect(() => {
     if (cakeInWallet === 0) {
-      setError('You must have a LIFE balance greater than zero to claim NFT')
+      setError(`You must have LIFE balance to claim NFT`)
     }
   }, [cakeInWallet, setError])
 
   return (
-    <Modal title={TranslateString(999, 'Claim NFT')} onDismiss={onDismiss}>
+    <Modal title={`Claim NFT for ${nft.tokenAmount} LIFE`} onDismiss={onDismiss}>
       <ModalContent>
         {error && (
           <Text color="failure" mb="8px">
