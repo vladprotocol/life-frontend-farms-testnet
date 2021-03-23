@@ -12,6 +12,7 @@ import {
   CardFooter,
   useModal,
 } from '@pancakeswap-libs/uikit'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import { Nft } from 'config/constants/types'
 import { AMOUNT_TO_CLAIM } from 'config/constants/nfts'
@@ -70,13 +71,29 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     getTokenIds,
     reInitialize,
   } = useContext(NftProviderContext)
+  const { account } = useWallet()
 
   const { nftId, name, previewImage, originalImage, description } = nft
 
-  const walletCanClaim = ! hasClaimed[nftId];
+
+  const hasClaimedArr:any = hasClaimed[0];
+  const ownerByIdArr:any = hasClaimed[0];
+
+
+  const firstCharOfAccount = account != null && account.slice(0, 4);
+  const lastCharOfAccount = account != null && account.slice(-4);
+
+  const accountName = account != null && `${firstCharOfAccount}...${lastCharOfAccount}`
+
 
   console.log('?hasClaimed', hasClaimed)
   console.log('?ownerById', ownerById)
+
+  const nftIndex = hasClaimedArr.indexOf(nftId)
+
+  const youAreOwner = ownerByIdArr && ownerByIdArr.includes(nftIndex) === account
+
+  const walletCanClaim = ! hasClaimed[nftId];
 
   const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed
@@ -149,9 +166,14 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             {TranslateString(999, 'Transfer')}
           </Button>
         )}
-        {isInitialized && walletCanClaim && isSupplyAvailable && (
+        {isInitialized && walletCanClaim && !youAreOwner && isSupplyAvailable && (
           <Button fullWidth onClick={onPresentClaimModal} mt="24px">
             {TranslateString(999, 'Claim this NFT')}
+          </Button>
+        )}
+        {youAreOwner && (
+          <Button fullWidth mt="24px" variant="tertiary" disabled>
+            {accountName}
           </Button>
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (

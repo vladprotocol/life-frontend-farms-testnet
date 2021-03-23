@@ -30,7 +30,6 @@ const Nft = () => {
         </StyledHero>
         <NftInfo />
         <NftList />
-
       </Page>
     </NftProvider>
   )
