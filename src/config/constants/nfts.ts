@@ -20,7 +20,7 @@ const Nfts: Nft[] = [
     nftId: 1,
     tokenAmount: 10,
     nftFarmContract: '0x8CD0Fc72eB4Cc5952c89C1c38d0217432E65eD81',
-    nftContract: '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea'
+    nftContract: '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea',
   },
   {
     name: 'test 3',
@@ -32,7 +32,7 @@ const Nfts: Nft[] = [
     nftId: 2,
     tokenAmount: 10,
     nftFarmContract: '0x8CD0Fc72eB4Cc5952c89C1c38d0217432E65eD81',
-    nftContract: '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea'
+    nftContract: '0xaae3989E43e3Cde428415154ceb79A83ec3A59ea',
   },
 ]
 

@@ -8,10 +8,10 @@ import { getCakeAddress } from 'utils/addressHelpers'
 import { Nft } from 'config/constants/types'
 import useTokenBalance from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import {useERC20, useRabbitMintingFarm} from 'hooks/useContract'
+import { useERC20, useRabbitMintingFarm } from 'hooks/useContract'
 import InfoRow from './InfoRow'
-import {useNftAllowance} from "../../../hooks/useAllowance";
-import {useNftApprove} from "../../../hooks/useApprove";
+import { useNftAllowance } from '../../../hooks/useAllowance'
+import { useNftApprove } from '../../../hooks/useApprove'
 
 interface ClaimNftModalProps {
   nft: Nft
@@ -46,12 +46,11 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
   const cakeBalance = useTokenBalance(getCakeAddress())
   const cakeInWallet = getBalanceNumber(cakeBalance)
 
-  console.log('allowance', allowance);
+  console.log('allowance', allowance)
 
   const handleConfirm = async () => {
-
     if (allowance === null) {
-      return ;
+      return
     }
 
     try {
@@ -81,8 +80,6 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
     }
   }, [cakeInWallet, setError])
 
-
-
   return (
     <Modal title={`Claim NFT for ${nft.tokenAmount} LIFE`} onDismiss={onDismiss}>
       <ModalContent>
@@ -97,23 +94,28 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
         </InfoRow>
       </ModalContent>
       <Actions>
+        <Button
+          fullWidth
+          disabled={!account || pendingTx || isLoading || allowance > 0}
+          onClick={async () => {
+            try {
+              setPendingTx(true)
+              await onApprove()
+              setPendingTx(false)
+            } catch (e) {
+              setPendingTx(false)
+              console.error(e)
+            }
+          }}
+        >
+          Approve
+        </Button>
 
         <Button
-            fullWidth
-            disabled={!account || pendingTx || isLoading || allowance > 0}
-            onClick={async () => {
-              try {
-                setPendingTx(true)
-                await onApprove()
-                setPendingTx(false)
-              } catch (e) {
-                setPendingTx(false)
-                console.error(e)
-              }
-            }}
-        >Approve</Button>
-
-        <Button fullWidth onClick={handleConfirm} disabled={!account || isLoading || cakeInWallet <= 0 || allowance <= 0 }>
+          fullWidth
+          onClick={handleConfirm}
+          disabled={!account || isLoading || cakeInWallet <= 0 || allowance <= 0}
+        >
           {TranslateString(464, 'Confirm')}
         </Button>
       </Actions>

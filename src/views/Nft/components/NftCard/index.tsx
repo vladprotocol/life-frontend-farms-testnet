@@ -75,25 +75,22 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const { nftId, name, previewImage, originalImage, description } = nft
 
+  const hasClaimedArr: any = hasClaimed[0]
+  const ownerByIdArr: any = hasClaimed[0]
 
-  const hasClaimedArr:any = hasClaimed[0];
-  const ownerByIdArr:any = hasClaimed[0];
-
-
-  const firstCharOfAccount = account != null && account.slice(0, 4);
-  const lastCharOfAccount = account != null && account.slice(-4);
+  const firstCharOfAccount = account != null && account.slice(0, 4)
+  const lastCharOfAccount = account != null && account.slice(-4)
 
   const accountName = account != null && `${firstCharOfAccount}...${lastCharOfAccount}`
-
 
   console.log('?hasClaimed', hasClaimed)
   console.log('?ownerById', ownerById)
 
-  const nftIndex = hasClaimedArr.indexOf(nftId)
+  const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
 
   const youAreOwner = ownerByIdArr && ownerByIdArr.includes(nftIndex) === account
 
-  const walletCanClaim = ! hasClaimed[nftId];
+  const walletCanClaim = !hasClaimed[nftId]
 
   const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed

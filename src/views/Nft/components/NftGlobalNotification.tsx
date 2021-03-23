@@ -52,14 +52,11 @@ const NftGlobalNotification = () => {
 
   useEffect(() => {
     const checkNftStatus = async () => {
-      const [totalSupplyDistributedArr, currentDistributedSupplyArr, hasClaimedArr] = await multicall(
-        nftFarm,
-        [
-          { address: NftFarm, name: 'totalSupplyDistributed' },
-          { address: NftFarm, name: 'currentDistributedSupply' },
-          { address: NftFarm, name: 'hasClaimed', params: [account] },
-        ],
-      )
+      const [totalSupplyDistributedArr, currentDistributedSupplyArr, hasClaimedArr] = await multicall(nftFarm, [
+        { address: NftFarm, name: 'totalSupplyDistributed' },
+        { address: NftFarm, name: 'currentDistributedSupply' },
+        { address: NftFarm, name: 'hasClaimed', params: [account] },
+      ])
 
       // TODO: Figure out why these values are coming back as an array
       const [totalSupplyDistributed]: [BigNumber] = totalSupplyDistributedArr

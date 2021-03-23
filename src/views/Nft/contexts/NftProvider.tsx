@@ -106,8 +106,8 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           { address: NftFarm, name: 'getMintedNft', params: [] },
           { address: NftFarm, name: 'getNftOwners', params: [] },
         ])
-console.log('hasClaimed', hasClaimed);
-console.log('ownerById', ownerById);
+        console.log('hasClaimed', hasClaimed)
+        console.log('ownerById', ownerById)
 
         const balanceOf = await nftContract.methods.balanceOf(account).call()
 
