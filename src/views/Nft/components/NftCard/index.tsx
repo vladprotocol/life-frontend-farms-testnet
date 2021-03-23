@@ -76,7 +76,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const { nftId, name, previewImage, originalImage, description } = nft
 
   const hasClaimedArr: any = hasClaimed[0]
-  const ownerByIdArr: any = hasClaimed[0]
+  const ownerByIdArr: any = ownerById[0]
 
   const firstCharOfAccount = account != null && account.slice(0, 4)
   const lastCharOfAccount = account != null && account.slice(-4)
@@ -88,7 +88,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
 
-  const youAreOwner = ownerByIdArr && ownerByIdArr.includes(nftIndex) === account
+  const youAreOwner = ownerByIdArr && ownerByIdArr[nftIndex] === account
 
   const walletCanClaim = !hasClaimed[nftId]
 
