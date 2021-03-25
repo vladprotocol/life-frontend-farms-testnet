@@ -83,8 +83,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const accountName = account != null && `${firstCharOfAccount}...${lastCharOfAccount}`
 
-  console.log('?hasClaimed', hasClaimed)
-  console.log('?ownerById', ownerById)
+  // console.log('?hasClaimed', hasClaimed)
+  // console.log('?ownerById', ownerById)
 
   const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
 

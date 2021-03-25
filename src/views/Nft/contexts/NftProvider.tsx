@@ -102,11 +102,19 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     const fetchContractData = async () => {
       try {
         const nftContract = getNftContract()
-        const [hasClaimed, ownerById] = await multicall(nftFarm, [
-          { address: NftFarm, name: 'getMintedNft', params: [] },
-          { address: NftFarm, name: 'getNftOwners', params: [] },
+
+        const getMinted = await multicall(nftFarm, [
+          { address: NftFarm, name: 'getMinted', params: [] },
         ])
+
+        console.log('getMinted', getMinted)
+
+        const hasClaimed = getMinted[0][0];
+        const amounts = getMinted[0][1];
+        const ownerById = getMinted[0][2];
+
         console.log('hasClaimed', hasClaimed)
+        console.log('amounts', amounts)
         console.log('ownerById', ownerById)
 
         const balanceOf = await nftContract.methods.balanceOf(account).call()
