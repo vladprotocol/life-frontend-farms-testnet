@@ -91,11 +91,15 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   // tokenPerBurn global price
 
 
+  console.log(ownerById);
+
+
   const { nftId, name, previewImage, originalImage, description } = nft
   const PRICE = prices[nft.nftId] || tokenPerBurn; // here we get the price
 
   const hasClaimedArr: any = hasClaimed[0]
   const ownerByIdArr: any = ownerById[0]
+
 
   const firstCharOfAccount = account != null && account.slice(0, 4)
   const lastCharOfAccount = account != null && account.slice(-4)
@@ -105,9 +109,9 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   // console.log('?hasClaimed', hasClaimed)
   // console.log('?ownerById', ownerById)
 
-  const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
+  // const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
 
-  const youAreOwner = ownerByIdArr && ownerByIdArr[nftIndex] === account
+  // const youAreOwner = ownerByIdArr && ownerByIdArr[nftIndex] === account
 
   const walletCanClaim = !hasClaimed[nftId]
 
@@ -182,14 +186,9 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             {TranslateString(999, 'Transfer')}
           </Button>
         )}
-        {isInitialized && walletCanClaim && !youAreOwner && isSupplyAvailable && (
+        {isInitialized && walletCanClaim && isSupplyAvailable && (
           <Button fullWidth onClick={onPresentClaimModal} mt="24px">
             {TranslateString(999, 'Claim this NFT')} for {PRICE}
-          </Button>
-        )}
-        {youAreOwner && (
-          <Button fullWidth mt="24px" variant="tertiary" disabled>
-            {accountName}
           </Button>
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (
