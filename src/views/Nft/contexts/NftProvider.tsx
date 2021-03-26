@@ -19,6 +19,9 @@ type State = {
   isInitialized: boolean
   hasClaimed: number[]
   ownerById: number[]
+  amounts: number[]
+  maxMintByNft: number[]
+  prices: number[]
   countBurnt: number
   endBlockNumber: number
   startBlockNumber: number
@@ -32,6 +35,8 @@ type State = {
   priceMultiplier: number
   maxMintPerNft: number
   tokenPerBurn: number
+
+
 }
 
 type Context = {
@@ -61,6 +66,10 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     priceMultiplier: 0,
     maxMintPerNft: 0,
     tokenPerBurn: 0,
+
+    amounts: [],
+    maxMintByNft: [],
+    prices: [],
 
   })
   const { account } = useWallet()
@@ -115,7 +124,7 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           allowMultipleClaims: allowMultipleClaimsArr[0],
           rarity: rarityArr[0].toString(),
           priceMultiplier: priceMultiplierArr[0].toString(),
-          maxMintPerNft: priceMultiplierArr[0].toString(),
+          maxMintPerNft: maxMintPerNftArr[0].toString(),
           tokenPerBurn: tokenPerBurnArr[0].toString(),
         }))
       } catch (error) {
