@@ -5,8 +5,8 @@ import { Nft } from './types'
 // export const NFT = '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07'
 
 // testnet
-export const NftFarm = '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE'
-export const NFT = '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244'
+export const NftFarm = '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB'
+export const NFT = '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392'
 export const AMOUNT_TO_CLAIM = '10'
 
 const Nfts: Nft[] = [
@@ -20,8 +20,8 @@ const Nfts: Nft[] = [
     sortOrder: 1,
     nftId: 1,
     tokenAmount: 10,
-    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
-    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
+    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
+    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
   {
     name: 'Main no paint',
@@ -33,8 +33,8 @@ const Nfts: Nft[] = [
     sortOrder: 2,
     nftId: 2,
     tokenAmount: 10,
-    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
-    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
+    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
+    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
   {
     name: 'Marble',
@@ -46,8 +46,8 @@ const Nfts: Nft[] = [
     sortOrder: 3,
     nftId: 3,
     tokenAmount: 10,
-    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
-    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
+    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
+    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
 ]
 

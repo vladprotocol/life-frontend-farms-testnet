@@ -26,6 +26,12 @@ type State = {
   currentDistributedSupply: number
   balanceOf: number
   nftMap: BunnyMap
+
+  allowMultipleClaims: boolean
+  rarity: string
+  priceMultiplier: number
+  maxMintPerNft: number
+  tokenPerBurn: number
 }
 
 type Context = {
@@ -49,6 +55,13 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     currentDistributedSupply: 0,
     balanceOf: 0,
     nftMap: {},
+
+    allowMultipleClaims: true,
+    rarity: "",
+    priceMultiplier: 0,
+    maxMintPerNft: 0,
+    tokenPerBurn: 0,
+
   })
   const { account } = useWallet()
   const currentBlock = useBlock()
@@ -65,12 +78,23 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           countBurntArr,
           totalSupplyDistributedArr,
           currentDistributedSupplyArr,
+
+          allowMultipleClaimsArr,
+          rarityArr,
+          priceMultiplierArr,
+          maxMintPerNftArr,
+          tokenPerBurnArr,
         ] = await multicall(nftFarm, [
           { address: NftFarm, name: 'startBlockNumber' },
           { address: NftFarm, name: 'endBlockNumber' },
           { address: NftFarm, name: 'countBurnt' },
           { address: NftFarm, name: 'totalSupplyDistributed' },
           { address: NftFarm, name: 'currentDistributedSupply' },
+          { address: NftFarm, name: 'allowMultipleClaims' },
+          { address: NftFarm, name: 'rarity' },
+          { address: NftFarm, name: 'priceMultiplier' },
+          { address: NftFarm, name: 'maxMintPerNft' },
+          { address: NftFarm, name: 'tokenPerBurn' },
         ])
 
         // TODO: Figure out why these are coming back as arrays
@@ -88,6 +112,11 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           endBlockNumber: endBlockNumber.toNumber(),
           currentDistributedSupply: currentDistributedSupply.toNumber(),
           totalSupplyDistributed: totalSupplyDistributed.toNumber(),
+          allowMultipleClaims: allowMultipleClaimsArr[0],
+          rarity: rarityArr[0].toString(),
+          priceMultiplier: priceMultiplierArr[0].toString(),
+          maxMintPerNft: priceMultiplierArr[0].toString(),
+          tokenPerBurn: tokenPerBurnArr[0].toString(),
         }))
       } catch (error) {
         console.error('an error occured', error)
@@ -105,15 +134,19 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
 
         const getMinted = await multicall(nftFarm, [{ address: NftFarm, name: 'getMinted', params: [] }])
 
-        console.log('getMinted', getMinted)
+        // console.log('getMinted', getMinted)
 
         const hasClaimed = getMinted[0][0]
         const amounts = getMinted[0][1]
         const ownerById = getMinted[0][2]
+        const maxMintByNft = getMinted[0][3]
+        const prices = getMinted[0][4]
 
         console.log('hasClaimed', hasClaimed)
         console.log('amounts', amounts)
         console.log('ownerById', ownerById)
+        console.log('maxMintByNft', maxMintByNft)
+        console.log('prices', prices)
 
         const balanceOf = await nftContract.methods.balanceOf(account).call()
 
@@ -164,6 +197,11 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           ownerById,
           balanceOf,
           nftMap,
+
+          amounts,
+          maxMintByNft,
+          prices,
+
         }))
       } catch (error) {
         console.error('an error occured', error)
