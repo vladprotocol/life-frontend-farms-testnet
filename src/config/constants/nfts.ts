@@ -5,8 +5,8 @@ import { Nft } from './types'
 // export const NFT = '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07'
 
 // testnet
-export const NftFarm = '0xB63a03BDDBED669b795F001773391f1ecB4F3a63'
-export const NFT = '0xC1648Ab65f0D6FE664F9C0c9a362DBAc36Ec1052'
+export const NftFarm = '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE'
+export const NFT = '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244'
 export const AMOUNT_TO_CLAIM = '10'
 
 const Nfts: Nft[] = [
@@ -19,8 +19,8 @@ const Nfts: Nft[] = [
     sortOrder: 1,
     nftId: 1,
     tokenAmount: 10,
-    nftFarmContract: '0xDb2eb954E24c26868d9fD8954A052FF61af4C26c',
-    nftContract: '0x8106a9a743Faf36d0DD568B4b8E434C10735b911',
+    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
+    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
   },
   {
     name: 'test 3',
@@ -31,8 +31,8 @@ const Nfts: Nft[] = [
     sortOrder: 2,
     nftId: 2,
     tokenAmount: 10,
-    nftFarmContract: '0xDb2eb954E24c26868d9fD8954A052FF61af4C26c',
-    nftContract: '0x8106a9a743Faf36d0DD568B4b8E434C10735b911',
+    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
+    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
   },
   {
     name: 'test 4',
@@ -43,8 +43,8 @@ const Nfts: Nft[] = [
     sortOrder: 3,
     nftId: 3,
     tokenAmount: 10,
-    nftFarmContract: '0xDb2eb954E24c26868d9fD8954A052FF61af4C26c',
-    nftContract: '0x8106a9a743Faf36d0DD568B4b8E434C10735b911',
+    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
+    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
   },
   {
     name: 'test test',
@@ -55,8 +55,8 @@ const Nfts: Nft[] = [
     sortOrder: 4,
     nftId: 4,
     tokenAmount: 10,
-    nftFarmContract: '0xDb2eb954E24c26868d9fD8954A052FF61af4C26c',
-    nftContract: '0x8106a9a743Faf36d0DD568B4b8E434C10735b911',
+    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
+    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
   },
   {
     name: 'test 5',
@@ -67,8 +67,8 @@ const Nfts: Nft[] = [
     sortOrder: 5,
     nftId: 5,
     tokenAmount: 10,
-    nftFarmContract: '0xDb2eb954E24c26868d9fD8954A052FF61af4C26c',
-    nftContract: '0x8106a9a743Faf36d0DD568B4b8E434C10735b911',
+    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
+    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
   },
   {
     name: 'test 6',
@@ -79,8 +79,8 @@ const Nfts: Nft[] = [
     sortOrder: 6,
     nftId: 6,
     tokenAmount: 10,
-    nftFarmContract: '0xDb2eb954E24c26868d9fD8954A052FF61af4C26c',
-    nftContract: '0x8106a9a743Faf36d0DD568B4b8E434C10735b911',
+    nftFarmContract: '0x81699Ec7E06C36d8f57A7548d3c3D5A579C759DE',
+    nftContract: '0xea57bc27A8F3B8F56f50EeFA158f107C190Cb244',
   },
 ]
 
