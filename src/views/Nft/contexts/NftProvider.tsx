@@ -103,15 +103,13 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
       try {
         const nftContract = getNftContract()
 
-        const getMinted = await multicall(nftFarm, [
-          { address: NftFarm, name: 'getMinted', params: [] },
-        ])
+        const getMinted = await multicall(nftFarm, [{ address: NftFarm, name: 'getMinted', params: [] }])
 
         console.log('getMinted', getMinted)
 
-        const hasClaimed = getMinted[0][0];
-        const amounts = getMinted[0][1];
-        const ownerById = getMinted[0][2];
+        const hasClaimed = getMinted[0][0]
+        const amounts = getMinted[0][1]
+        const ownerById = getMinted[0][2]
 
         console.log('hasClaimed', hasClaimed)
         console.log('amounts', amounts)
