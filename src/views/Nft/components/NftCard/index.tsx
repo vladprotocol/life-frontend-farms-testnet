@@ -84,9 +84,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const history = useHistory()
 
-  console.log('CONTRACT/GALLERY INFO:', totalSupplyDistributed, rarity, priceMultiplier, maxMintPerNft, tokenPerBurn)
-  console.log('LIMITS BY NFT:', tokenPerBurn, amounts, maxMintByNft, prices)
-
   // maxMintPerNft limit max amount that a nft can be minted
   // maxMintByNft array containing individual amount of mint per nft index
   // prices array containing individual prices of a mint per nft index
@@ -108,9 +105,17 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const nftIndex = hasClaimed && hasClaimed.indexOf(nftId)
 
-  const youAreOwner = ownerById && ownerById[nftIndex] && ownerById[nftIndex].toString() === account.toString()
+  // not sure about this, you need to check if this oser own this nft in the view nft page.
+  const youAreTheLastOwner = ownerById && ownerById[nftIndex] && ownerById[nftIndex].toString() === account.toString()
 
-  const walletCanClaim = !hasClaimed[nftId]
+  const MINTED = amounts[nftIndex] ? parseInt(amounts[nftIndex].toString()) : 0;
+  const MAX_MINT = maxMintByNft[nftIndex] ? parseInt(maxMintByNft[nftIndex].toString()) : 0;
+
+  const walletCanClaim = maxMintPerNft===0 || MINTED===undefined || (MINTED < maxMintPerNft);
+
+  // console.log('CONTRACT/GALLERY INFO:', totalSupplyDistributed, rarity, priceMultiplier, maxMintPerNft, tokenPerBurn)
+  // console.log('LIMITS BY NFT:', tokenPerBurn, amounts, maxMintByNft, prices)
+  console.log(nftId, 'walletCanClaim', walletCanClaim, maxMintPerNft, MINTED, MAX_MINT);
 
   const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed
@@ -185,12 +190,12 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         )}
         {isInitialized && walletCanClaim && isSupplyAvailable && (
           <Button fullWidth onClick={onPresentClaimModal} mt="24px">
-            {TranslateString(999, 'Claim this NFT')} for {PRICE}
+            {TranslateString(999, 'Claim this NFT')} for {PRICE} LIFE
           </Button>
         )}
-        {isInitialized && youAreOwner && (
+        {isInitialized && youAreTheLastOwner && (
           <Button fullWidth onClick={() => history.push(`detail/${nftId}`)} mt="24px">
-            {TranslateString(999, 'View NFT')}
+            <Text>View NFT ({MINTED} of {MAX_MINT})</Text>
           </Button>
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (

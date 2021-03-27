@@ -1,4 +1,4 @@
-import { AbiItem } from 'web3-utils'
+import { AbiItem, fromWei } from 'web3-utils'
 import { getContract } from 'utils/web3'
 import { ContractOptions } from 'web3-eth-contract'
 import nftFarm from 'config/abi/NftFarm.json'
@@ -15,6 +15,11 @@ export const getNftMintingContract = (contractOptions?: ContractOptions) => {
 export const getNftContract = (contractOptions?: ContractOptions) => {
   const nftAbi = (nft as unknown) as AbiItem
   return getContract(nftAbi, NFT, contractOptions)
+}
+
+export const getFromWei = (v:any) => {
+  if( ! v ) return 0;
+  return parseFloat(fromWei(v.toString(),'ether'));
 }
 
 export default getNftMintingContract
