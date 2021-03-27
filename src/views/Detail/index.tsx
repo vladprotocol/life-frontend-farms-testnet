@@ -26,11 +26,8 @@ const Detail = (props) => {
     <NftProvider>
       <Page>
         <StyledHero>
-          <Heading as="h1" size="xxl" color="secondary" mb="24px">
-            NFTs
-          </Heading>
-          <Heading as="h2" size="lg" color="secondary">
-            {TranslateString(999, 'Trade in for LIFE, or keep for your collection!')}
+          <Heading as="h1" size="xxl" color="#5ca269" mb="24px">
+            {nft1[0].name}
           </Heading>
         </StyledHero>
         <NftCard nft={nft1[0]} />

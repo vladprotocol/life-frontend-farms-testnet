@@ -163,7 +163,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   return (
     <Card isActive={walletOwnsNft}>
       {fileType === 'mp4' && (
-        <video width="100%" controls>
+        <video height="400px" width="100%" controls>
           <source src={originalImage} type="video/mp4" />
           <track kind="captions" />
         </video>
@@ -188,11 +188,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         {isInitialized && walletOwnsNft && (
           <Button fullWidth variant="secondary" mt="24px" onClick={onPresentTransferModal}>
             {TranslateString(999, 'Transfer')}
-          </Button>
-        )}
-        {isInitialized && walletCanClaim && isSupplyAvailable && (
-          <Button fullWidth onClick={onPresentClaimModal} mt="24px">
-            {TranslateString(999, 'Claim this NFT')} for {PRICE}
           </Button>
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (
