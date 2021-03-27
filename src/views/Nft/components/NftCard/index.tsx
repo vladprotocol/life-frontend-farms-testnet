@@ -16,7 +16,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import { Nft } from 'config/constants/types'
 import { AMOUNT_TO_CLAIM } from 'config/constants/nfts'
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
 import InfoRow from '../InfoRow'
 import Image from '../Image'
 import { NftProviderContext } from '../../contexts/NftProvider'
@@ -82,7 +82,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   } = useContext(NftProviderContext)
   const { account } = useWallet()
 
-  const history = useHistory();
+  const history = useHistory()
 
   console.log('CONTRACT/GALLERY INFO:', totalSupplyDistributed, rarity, priceMultiplier, maxMintPerNft, tokenPerBurn)
   console.log('LIMITS BY NFT:', tokenPerBurn, amounts, maxMintByNft, prices)
