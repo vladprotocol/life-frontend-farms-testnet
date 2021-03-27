@@ -30,7 +30,7 @@ interface NftCardProps {
 }
 
 const Header = styled(InfoRow)`
-  min-height: 28px;
+  min-height: 44px;
 `
 
 const DetailsButton = styled(Button).attrs({ variant: 'text', fullWidth: true })`
