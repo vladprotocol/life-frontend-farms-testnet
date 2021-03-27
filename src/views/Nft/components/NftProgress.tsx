@@ -49,38 +49,12 @@ const NftProgress = () => {
   return (
     <Card>
       <CardBody>
-        <ProgressWrap>
-          <Progress primaryStep={progress} />
-        </ProgressWrap>
-        <TimeLeft>
-          {timeLeft ? TranslateString(999, `${timeLeft} left to trade in NFTs`) : TranslateString(999, 'Finished!')}
-        </TimeLeft>
         <InfoRow>
           <Text>{TranslateString(999, "Total NFT's claimed")}:</Text>
           <Text>
             <strong>{!isInitialized ? '...' : `${currentDistributedSupply}/${totalSupplyDistributed}`}</strong>
           </Text>
         </InfoRow>
-        <InfoRow>
-          <Text>{TranslateString(999, "Total NFT's burned")}:</Text>
-          <Text>
-            <strong>{!isInitialized ? '...' : `${countBurnt}/${totalSupplyDistributed}`}</strong>
-          </Text>
-        </InfoRow>
-        <InfoRow>
-          <Text>{TranslateString(999, 'Can be traded until')}:</Text>
-          <div>
-            {!isInitialized ? (
-              '...'
-            ) : (
-              <Link href={`https://bscscan.com/block/${endBlockNumber}`} target="_blank" rel="noreferrer noopener">
-                {`Block ${endBlockNumber}`}
-                <OpenNewIcon color="primary" ml="2px" />
-              </Link>
-            )}{' '}
-          </div>
-        </InfoRow>
-        <Message>{TranslateString(999, 'NFTs can be traded in for CAKE until the above block height')}</Message>
       </CardBody>
     </Card>
   )

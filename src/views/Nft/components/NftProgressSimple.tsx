@@ -17,12 +17,6 @@ const NftProgressSimple = () => {
             <strong>{!isInitialized ? '...' : `${currentDistributedSupply}/${totalSupplyDistributed}`}</strong>
           </Text>
         </InfoRow>
-        <InfoRow>
-          <Text>{TranslateString(999, "Total NFT's burned")}:</Text>
-          <Text>
-            <strong>{!isInitialized ? '...' : `${countBurnt}/${totalSupplyDistributed}`}</strong>
-          </Text>
-        </InfoRow>
       </CardBody>
     </Card>
   )

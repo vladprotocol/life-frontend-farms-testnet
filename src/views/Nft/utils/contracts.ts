@@ -17,9 +17,9 @@ export const getNftContract = (contractOptions?: ContractOptions) => {
   return getContract(nftAbi, NFT, contractOptions)
 }
 
-export const getFromWei = (v:any) => {
-  if( ! v ) return 0;
-  return parseFloat(fromWei(v.toString(),'ether'));
+export const getFromWei = (v: any) => {
+  if (!v) return 0
+  return parseFloat(fromWei(v.toString(), 'ether'))
 }
 
 export default getNftMintingContract
