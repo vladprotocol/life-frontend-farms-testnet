@@ -35,8 +35,6 @@ type State = {
   priceMultiplier: number
   maxMintPerNft: number
   tokenPerBurn: number
-
-
 }
 
 type Context = {
@@ -62,7 +60,7 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     nftMap: {},
 
     allowMultipleClaims: true,
-    rarity: "",
+    rarity: '',
     priceMultiplier: 0,
     maxMintPerNft: 0,
     tokenPerBurn: 0,
@@ -70,7 +68,6 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     amounts: [],
     maxMintByNft: [],
     prices: [],
-
   })
   const { account } = useWallet()
   const currentBlock = useBlock()
@@ -210,7 +207,6 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           amounts,
           maxMintByNft,
           prices,
-
         }))
       } catch (error) {
         console.error('an error occured', error)

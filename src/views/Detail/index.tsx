@@ -17,10 +17,10 @@ const StyledHero = styled.div`
 
 const Detail = (props) => {
   const TranslateString = useI18n()
-  const {match} = props
+  const { match } = props
   const id = parseInt(match.params.id)
 
-  const nft1 = nfts.filter(nft => nft.nftId === id);
+  const nft1 = nfts.filter((nft) => nft.nftId === id)
 
   return (
     <NftProvider>

@@ -11,11 +11,12 @@ export const AMOUNT_TO_CLAIM = '10'
 
 const Nfts: Nft[] = [
   {
-    name: 'Dark chocolate',
+    name: 'Count Pepes Chocula',
     metadata: 'tier-NFT-base-dark-chocolate.json',
-    description: 'test description',
+    description: 'Dipped in chocolate and ready for a bite. Part of the base tier of Vlad NFTs.',
     previewImage: 'preview-base-dark-chocolate.jpg',
-    originalImage: 'https://ipfs.io/ipfs/QmX9UuF41nfhnESX3DnVHhC4XwuYAcLEReGyN4CtE8P7Bg?filename=NFT-base-dark-chocolate.mp4',
+    originalImage:
+      'https://ipfs.io/ipfs/QmX9UuF41nfhnESX3DnVHhC4XwuYAcLEReGyN4CtE8P7Bg?filename=NFT-base-dark-chocolate.mp4',
     fileType: 'mp4',
     blurImage: '',
     sortOrder: 1,
@@ -25,11 +26,12 @@ const Nfts: Nft[] = [
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
   {
-    name: 'Main no paint',
+    name: 'Vlad Pepes Drakul',
     metadata: 'tier-NFT-base-main-nopaint.json',
-    description: 'test description',
+    description: 'The legend behind the meme in all his original glory. Part of the base tier of Vlad NFTs',
     previewImage: 'preview-base-main-nopaint.jpg',
-    originalImage: 'https://ipfs.io/ipfs/QmWckPrzbjvf8jqUpdQ7jKLzdaSBTyPSV6x6obSUHHipqc?filename=NFT-base-main-nopaint.mp4',
+    originalImage:
+      'https://ipfs.io/ipfs/QmWckPrzbjvf8jqUpdQ7jKLzdaSBTyPSV6x6obSUHHipqc?filename=NFT-base-main-nopaint.mp4',
     fileType: 'mp4',
     blurImage: '',
     sortOrder: 2,
@@ -39,12 +41,13 @@ const Nfts: Nft[] = [
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
   {
-    name: 'Marble',
+    name: 'Pepes in Stone',
     metadata: 'tier-NFT-base-marble.json',
-    description: 'test description',
+    description:
+      'The count has turned into a marble statue ready for display in the halls of Vladhalla. Part of the base tier of Vlad NFTs.',
     previewImage: 'preview-base-marble.jpg',
     originalImage: 'https://ipfs.io/ipfs/QmSnz85drLjCD4qNgaMwHFC6PFEkGrmYhM1LpHwZWpEWaQ?filename=NFT-base-marble.mp4',
-    fileType: 'mp4' ,
+    fileType: 'mp4',
     blurImage: '',
     sortOrder: 3,
     nftId: 3,
