@@ -94,7 +94,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   console.log(ownerById);
 
 
-  const { nftId, name, previewImage, originalImage, description } = nft
+  const { nftId, name, previewImage, originalImage, fileType, description, metadata } = nft
   const PRICE = prices[nft.nftId] || tokenPerBurn; // here we get the price
 
   const hasClaimedArr: any = hasClaimed[0]
@@ -166,7 +166,15 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   return (
     <Card isActive={walletOwnsNft}>
-      <Image src={`/images/nfts/${previewImage}`} alt={name} originalLink={walletOwnsNft ? originalImage : null} />
+      {fileType === 'mp4' &&
+        <video width="100%" controls>
+            <source src={originalImage} type="video/mp4" />
+            <track kind="captions" />            
+        </video>
+      }
+      {fileType !== 'mp4' &&
+        <Image src={originalImage} alt={name} originalLink={walletOwnsNft ? originalImage : null} />
+      }
       <CardBody>
         <Header>
           <Heading>{name}</Heading>
@@ -213,10 +221,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             <InfoRow>
               <Text>{TranslateString(999, 'Number minted')}:</Text>
               <Value>{state.nftCount + state.nftBurnCount}</Value>
-            </InfoRow>
-            <InfoRow>
-              <Text>{TranslateString(999, 'Number burned')}:</Text>
-              <Value>{state.nftBurnCount}</Value>
             </InfoRow>
           </InfoBlock>
         )}

@@ -91,9 +91,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   // tokenPerBurn global price
 
 
-  console.log(ownerById);
-
-
   const { nftId, name, previewImage, originalImage, description } = nft
   const PRICE = prices[nft.nftId] || tokenPerBurn; // here we get the price
 
@@ -213,10 +210,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             <InfoRow>
               <Text>{TranslateString(999, 'Number minted')}:</Text>
               <Value>{state.nftCount + state.nftBurnCount}</Value>
-            </InfoRow>
-            <InfoRow>
-              <Text>{TranslateString(999, 'Number burned')}:</Text>
-              <Value>{state.nftBurnCount}</Value>
             </InfoRow>
           </InfoBlock>
         )}

@@ -81,6 +81,7 @@ export type Nft = {
   description: string
   originalImage: string
   previewImage: string
+  fileType: string
   blurImage: string
   sortOrder: number
   nftId: number
