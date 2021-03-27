@@ -193,7 +193,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             {TranslateString(999, 'Claim this NFT')} for {PRICE} LIFE
           </Button>
         )}
-        {isInitialized && youAreTheLastOwner && (
+        {isInitialized && (
           <Button fullWidth onClick={() => history.push(`detail/${nftId}`)} mt="24px">
             <Text>
               View NFT ({MINTED} of {MAX_MINT})
