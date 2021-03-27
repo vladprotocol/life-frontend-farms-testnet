@@ -79,10 +79,12 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     amounts,
     maxMintByNft,
     prices,
+    myMints,
   } = useContext(NftProviderContext)
   const { account } = useWallet()
-
   const history = useHistory()
+
+
 
   // maxMintPerNft limit max amount that a nft can be minted
   // maxMintByNft array containing individual amount of mint per nft index
@@ -90,7 +92,9 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   // tokenPerBurn global price
 
   const { nftId, name, previewImage, originalImage, description } = nft
-  const PRICE = prices[nft.nftId] || tokenPerBurn // here we get the price
+  const PRICE = prices[nftId] || tokenPerBurn // here we get the price
+  const MINTS = myMints[nftId] || 0;
+  console.log(nftId, '?myMints', myMints, 'MINTS', MINTS)
 
   const hasClaimedArr: any = hasClaimed[0]
   const ownerByIdArr: any = ownerById[0]
@@ -196,7 +200,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         {isInitialized && (
           <Button fullWidth onClick={() => history.push(`detail/${nftId}`)} mt="24px">
             <Text>
-              View NFT ({MINTED} of {MAX_MINT})
+              View NFT ({MINTED} of {MAX_MINT}) - My mints: {MINTS}
             </Text>
           </Button>
         )}

@@ -22,6 +22,7 @@ type State = {
   amounts: number[]
   maxMintByNft: number[]
   prices: number[]
+  myMints: number[]
   countBurnt: number
   endBlockNumber: number
   startBlockNumber: number
@@ -68,6 +69,7 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
     amounts: [],
     maxMintByNft: [],
     prices: [],
+    myMints: [],
   })
   const { account } = useWallet()
   const currentBlock = useBlock()
@@ -138,7 +140,7 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
       try {
         const nftContract = getNftContract()
 
-        const getMinted = await multicall(nftFarm, [{ address: NftFarm, name: 'getMinted', params: [] }])
+        const getMinted = await multicall(nftFarm, [{ address: NftFarm, name: 'getMinted', params: [account] }])
 
         // console.log('getMinted', getMinted)
 
@@ -147,12 +149,14 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
         const ownerById = getMinted[0][2]
         const maxMintByNft = getToInt(getMinted[0][3])
         const prices = getFromWayArray(getMinted[0][4])
+        const myMints = getToInt(getMinted[0][5])
 
         // console.log('hasClaimed', hasClaimed)
         // console.log('amounts', amounts)
         // console.log('ownerById', ownerById)
         // console.log('maxMintByNft', maxMintByNft)
         // console.log('prices', prices)
+        console.log('myMints', myMints)
 
         const balanceOf = await nftContract.methods.balanceOf(account).call()
 
@@ -207,6 +211,7 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           amounts,
           maxMintByNft,
           prices,
+          myMints,
         }))
       } catch (error) {
         console.error('an error occured', error)

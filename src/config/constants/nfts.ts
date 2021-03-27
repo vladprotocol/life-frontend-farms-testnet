@@ -1,12 +1,7 @@
 import { Nft } from './types'
 
-// mainnet
-// export const NftFarm = '0x7c8b60d2b859a38c8B9b5B6CB4565485cb637c7a'
-// export const NFT = '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07'
-
-// testnet
-export const NftFarm = '0xE413E76b586a401e47553934df2e38034211a38E'
-export const NFT = '0x570c06281715AB135128eC05613658BfC4D7E8ae'
+export const NftFarm = '0x9e04f069277ea2092E59575F7De698f5A1d62f62'
+export const NFT = '0x8D5940Bd327714e2A116246020F7f3A3BCE8d471'
 export const AMOUNT_TO_CLAIM = '10'
 
 const Nfts: Nft[] = [
@@ -19,8 +14,8 @@ const Nfts: Nft[] = [
       'https://ipfs.io/ipfs/QmX9UuF41nfhnESX3DnVHhC4XwuYAcLEReGyN4CtE8P7Bg?filename=NFT-base-dark-chocolate.mp4',
     fileType: 'mp4',
     blurImage: '',
-    sortOrder: 1,
-    nftId: 1,
+    sortOrder: 0,
+    nftId: 0,
     tokenAmount: 10,
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
@@ -34,8 +29,8 @@ const Nfts: Nft[] = [
       'https://ipfs.io/ipfs/QmWckPrzbjvf8jqUpdQ7jKLzdaSBTyPSV6x6obSUHHipqc?filename=NFT-base-main-nopaint.mp4',
     fileType: 'mp4',
     blurImage: '',
-    sortOrder: 2,
-    nftId: 2,
+    sortOrder: 1,
+    nftId: 1,
     tokenAmount: 10,
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
@@ -49,8 +44,8 @@ const Nfts: Nft[] = [
     originalImage: 'https://ipfs.io/ipfs/QmSnz85drLjCD4qNgaMwHFC6PFEkGrmYhM1LpHwZWpEWaQ?filename=NFT-base-marble.mp4',
     fileType: 'mp4',
     blurImage: '',
-    sortOrder: 3,
-    nftId: 3,
+    sortOrder: 2,
+    nftId: 2,
     tokenAmount: 10,
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',

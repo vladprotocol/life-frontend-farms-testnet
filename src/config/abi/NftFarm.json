@@ -55,6 +55,16 @@
         "internalType": "uint256",
         "name": "_priceMultiplier",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_min_index",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_max_index",
+        "type": "uint8"
       }
     ],
     "stateMutability": "nonpayable",
@@ -267,6 +277,34 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "max_index",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "min_index",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
       }
     ],
     "stateMutability": "view",
@@ -585,7 +623,13 @@
     "constant": true
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
+    ],
     "name": "getMinted",
     "outputs": [
       {
@@ -612,6 +656,56 @@
         "internalType": "uint256[]",
         "name": "",
         "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_nftId",
+        "type": "uint8"
+      }
+    ],
+    "name": "getMintsOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_nftId",
+        "type": "uint8"
+      }
+    ],
+    "name": "getMaxMint",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -818,11 +912,29 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_max",
+        "name": "_maxMintPerNft",
         "type": "uint256"
       }
     ],
     "name": "adminSetMaxMintPerNft",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_min_index",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_max_index",
+        "type": "uint8"
+      }
+    ],
+    "name": "adminSetMintingInterval",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
