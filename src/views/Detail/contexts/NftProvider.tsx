@@ -5,7 +5,7 @@ import useBlock from 'hooks/useBlock'
 import nftFarm from 'config/abi/NftFarm.json'
 import { NftFarm } from 'config/constants/nfts'
 import multicall from 'utils/multicall'
-import { getNftContract } from '../utils/contracts'
+import { getNftContract, getFromWei, getToFloat, getToInt, getFromWayArray } from '../utils/contracts'
 
 interface NftProviderProps {
   children: ReactNode
@@ -120,9 +120,9 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           totalSupplyDistributed: totalSupplyDistributed.toNumber(),
           allowMultipleClaims: allowMultipleClaimsArr[0],
           rarity: rarityArr[0].toString(),
-          priceMultiplier: priceMultiplierArr[0].toString(),
-          maxMintPerNft: maxMintPerNftArr[0].toString(),
-          tokenPerBurn: tokenPerBurnArr[0].toString(),
+          priceMultiplier: parseFloat(priceMultiplierArr[0].toString()),
+          maxMintPerNft: parseInt(maxMintPerNftArr[0].toString()),
+          tokenPerBurn: getFromWei(tokenPerBurnArr[0]),
         }))
       } catch (error) {
         console.error('an error occured', error)
@@ -143,16 +143,16 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
         // console.log('getMinted', getMinted)
 
         const hasClaimed = getMinted[0][0]
-        const amounts = getMinted[0][1]
+        const amounts = getToFloat(getMinted[0][1])
         const ownerById = getMinted[0][2]
-        const maxMintByNft = getMinted[0][3]
-        const prices = getMinted[0][4]
+        const maxMintByNft = getToInt(getMinted[0][3])
+        const prices = getFromWayArray(getMinted[0][4])
 
-        console.log('hasClaimed', hasClaimed)
-        console.log('amounts', amounts)
-        console.log('ownerById', ownerById)
-        console.log('maxMintByNft', maxMintByNft)
-        console.log('prices', prices)
+        // console.log('hasClaimed', hasClaimed)
+        // console.log('amounts', amounts)
+        // console.log('ownerById', ownerById)
+        // console.log('maxMintByNft', maxMintByNft)
+        // console.log('prices', prices)
 
         const balanceOf = await nftContract.methods.balanceOf(account).call()
 

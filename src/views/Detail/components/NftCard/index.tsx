@@ -106,6 +106,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const accountName = account != null && `${firstCharOfAccount}...${lastCharOfAccount}`
 
+  const loggedIn = account !== null
+
   // console.log('?hasClaimed', hasClaimed)
   // console.log('?ownerById', ownerById)
 
@@ -189,14 +191,14 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             </Tag>
           )}
         </Header>
+        {isInitialized && loggedIn && walletCanClaim && isSupplyAvailable && (
+          <Button fullWidth onClick={onPresentClaimModal} mt="24px">
+            {TranslateString(999, 'Claim this NFT')} for {PRICE} LIFE
+          </Button>
+        )}
         {isInitialized && walletOwnsNft && (
           <Button fullWidth variant="secondary" mt="24px" onClick={onPresentTransferModal}>
             {TranslateString(999, 'Transfer')}
-          </Button>
-        )}
-        {isInitialized && canBurnNft && walletOwnsNft && (
-          <Button variant="danger" fullWidth onClick={onPresentBurnModal} mt="24px">
-            {TranslateString(999, 'Trade in for LIFE')}
           </Button>
         )}
       </CardBody>
