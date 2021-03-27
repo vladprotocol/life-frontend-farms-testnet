@@ -53,10 +53,14 @@ const Value = styled(Text)`
   font-weight: 600;
 `
 
+const SmallCard = styled(Card)`
+  width: 500px;
+`
+
 const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const [state, setState] = useState({
     isLoading: false,
-    isOpen: false,
+    isOpen: true,
     nftCount: 0,
     nftBurnCount: 0,
   })
@@ -161,9 +165,9 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   )
 
   return (
-    <Card isActive={walletOwnsNft}>
+    <SmallCard isActive={walletOwnsNft}>
       {fileType === 'mp4' && (
-        <video height="400px" width="100%" controls>
+        <video height="500px" width="100%" loop autoPlay muted>
           <source src={originalImage} type="video/mp4" />
           <track kind="captions" />
         </video>
@@ -196,19 +200,12 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
           </Button>
         )}
       </CardBody>
-      <CardFooter p="0">
-        <DetailsButton endIcon={<Icon width="24px" color="primary" />} onClick={handleClick}>
-          {state.isLoading ? TranslateString(999, 'Loading...') : TranslateString(999, 'Details')}
-        </DetailsButton>
+      <CardFooter p="2">
         {state.isOpen && (
           <InfoBlock>
             <Text as="p" color="textSubtle" mb="16px" style={{ textAlign: 'center' }}>
               {description}
             </Text>
-            <InfoRow>
-              <Text>{TranslateString(999, 'Value if traded in')}:</Text>
-              <Value>10 LIFE</Value>
-            </InfoRow>
             <InfoRow>
               <Text>{TranslateString(999, 'Number minted')}:</Text>
               <Value>{state.nftCount + state.nftBurnCount}</Value>
@@ -216,7 +213,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
           </InfoBlock>
         )}
       </CardFooter>
-    </Card>
+    </SmallCard>
   )
 }
 
