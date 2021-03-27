@@ -24,46 +24,45 @@ export const getFromWei = (v: any) => {
 
 export const getFromWayArray = (v: any) => {
   if (!v) return []
-  const array = [];
-  const t = v.length;
-  for( let i = 0 ; i < t ; i ++ ){
-    if( ! v[i] ){
-      array.push(0);
-    }else{
-      array.push( fromWei(v[i].toString(), 'ether') );
+  const array = []
+  const t = v.length
+  for (let i = 0; i < t; i++) {
+    if (!v[i]) {
+      array.push(0)
+    } else {
+      array.push(fromWei(v[i].toString(), 'ether'))
     }
   }
-  return array;
+  return array
 }
-
 
 export const getToFloat = (v: any) => {
   if (!v) return []
-  const array = [];
+  const array = []
   if (!v) return []
-  const t = v.length;
-  for( let i = 0 ; i < t ; i ++ ){
-    if( ! v[i] ){
-      array.push(0);
-    }else{
-      array.push( parseInt(v[i].toString()) );
+  const t = v.length
+  for (let i = 0; i < t; i++) {
+    if (!v[i]) {
+      array.push(0)
+    } else {
+      array.push(parseInt(v[i].toString()))
     }
   }
-  return array;
+  return array
 }
 
 export const getToInt = (v: any) => {
-  const array = [];
+  const array = []
   if (!v) return []
-  const t = v.length;
-  for( let i = 0 ; i < t ; i ++ ){
-    if( ! v[i] ){
-      array.push(0);
-    }else{
-      array.push( parseFloat(v[i].toString()) );
+  const t = v.length
+  for (let i = 0; i < t; i++) {
+    if (!v[i]) {
+      array.push(0)
+    } else {
+      array.push(parseFloat(v[i].toString()))
     }
   }
-  return array;
+  return array
 }
 
 export default getNftMintingContract
