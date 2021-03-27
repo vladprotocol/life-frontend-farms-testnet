@@ -115,7 +115,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   // console.log('CONTRACT/GALLERY INFO:', totalSupplyDistributed, rarity, priceMultiplier, maxMintPerNft, tokenPerBurn)
   // console.log('LIMITS BY NFT:', tokenPerBurn, amounts, maxMintByNft, prices)
-  console.log(nftId, 'walletCanClaim', walletCanClaim, maxMintPerNft, MINTED, MAX_MINT)
+  // console.log(nftId, 'walletCanClaim', walletCanClaim, maxMintPerNft, MINTED, MAX_MINT)
 
   const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed
