@@ -16,6 +16,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import { Nft } from 'config/constants/types'
 import { AMOUNT_TO_CLAIM } from 'config/constants/nfts'
+import { useHistory } from 'react-router-dom';
 import InfoRow from '../InfoRow'
 import Image from '../Image'
 import { NftProviderContext } from '../../contexts/NftProvider'
@@ -81,6 +82,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   } = useContext(NftProviderContext)
   const { account } = useWallet()
 
+  const history = useHistory();
+
   console.log('CONTRACT/GALLERY INFO:', totalSupplyDistributed, rarity, priceMultiplier, maxMintPerNft, tokenPerBurn)
   console.log('LIMITS BY NFT:', tokenPerBurn, amounts, maxMintByNft, prices)
 
@@ -103,9 +106,9 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   // console.log('?hasClaimed', hasClaimed)
   // console.log('?ownerById', ownerById)
 
-  // const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
+  const nftIndex = hasClaimed && hasClaimed.indexOf(nftId)
 
-  // const youAreOwner = ownerByIdArr && ownerByIdArr[nftIndex] === account
+  const youAreOwner = ownerById && ownerById[nftIndex] && ownerById[nftIndex].toString() === account.toString()
 
   const walletCanClaim = !hasClaimed[nftId]
 
@@ -183,6 +186,11 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         {isInitialized && walletCanClaim && isSupplyAvailable && (
           <Button fullWidth onClick={onPresentClaimModal} mt="24px">
             {TranslateString(999, 'Claim this NFT')} for {PRICE}
+          </Button>
+        )}
+        {isInitialized && youAreOwner && (
+          <Button fullWidth onClick={() => history.push(`detail/${nftId}`)} mt="24px">
+            {TranslateString(999, 'View NFT')}
           </Button>
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (
