@@ -104,6 +104,8 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const accountName = account != null && `${firstCharOfAccount}...${lastCharOfAccount}`
 
+  const loggedIn = account !== null
+
   // console.log('?hasClaimed', hasClaimed)
   // console.log('?ownerById', ownerById)
 
@@ -192,12 +194,12 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             {TranslateString(999, 'Transfer')}
           </Button>
         )}
-        {isInitialized && walletCanClaim && isSupplyAvailable && (
+        {isInitialized && loggedIn && walletCanClaim && isSupplyAvailable && (
           <Button fullWidth onClick={onPresentClaimModal} mt="24px">
             {TranslateString(999, 'Claim this NFT')} for {PRICE} LIFE
           </Button>
         )}
-        {isInitialized && (
+        {isInitialized && loggedIn && (
           <Button fullWidth onClick={() => history.push(`detail/${nftId}`)} mt="24px">
             <Text>
               View NFT ({MINTED} of {MAX_MINT}) - My mints: {MINTS}
