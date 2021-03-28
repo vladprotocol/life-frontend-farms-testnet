@@ -11,11 +11,13 @@ import {
   Text,
   CardFooter,
   useModal,
+  LogoIcon,
 } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useI18n from 'hooks/useI18n'
 import { Nft } from 'config/constants/types'
 import { AMOUNT_TO_CLAIM } from 'config/constants/nfts'
+import Page from 'components/layout/Page'
 import InfoRow from '../InfoRow'
 import Image from '../Image'
 import { NftProviderContext } from '../../contexts/NftProvider'
@@ -27,6 +29,14 @@ import TransferNftModal from '../TransferNftModal'
 interface NftCardProps {
   nft: Nft
 }
+
+const StyledNotFound = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px);
+  justify-content: center;
+`
 
 const Header = styled(InfoRow)`
   min-height: 28px;
@@ -168,6 +178,21 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const [onPresentTransferModal] = useModal(
     <TransferNftModal nft={nft} tokenIds={tokenIds} onSuccess={handleSuccess} />,
   )
+
+  if (MINTS <= 0) {
+    return (
+      <Page>
+        <StyledNotFound>
+          <LogoIcon width="64px" mb="8px" />
+          <Heading size="xxl">404</Heading>
+          <Text mb="16px">{TranslateString(999, 'Oops, page not found.')}</Text>
+          <Button as="a" href="/" size="sm">
+            {TranslateString(999, 'Back Home')}
+          </Button>
+        </StyledNotFound>
+      </Page>
+    )
+  }
 
   return (
     <SmallCard isActive={walletOwnsNft}>
