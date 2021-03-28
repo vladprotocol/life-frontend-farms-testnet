@@ -21,12 +21,12 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'Farms',
+    label: 'Farm Life',
     icon: 'FarmIcon',
     href: '/farms',
   },
   {
-    label: 'Nft',
+    label: 'Mint Nft',
     icon: 'NftIcon',
     href: '/nft',
   },

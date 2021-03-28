@@ -179,75 +179,86 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     <TransferNftModal nft={nft} tokenIds={tokenIds} onSuccess={handleSuccess} />,
   )
 
-  if (MINTS <= 0) {
+  if (!isInitialized) {
     return (
       <Page>
         <StyledNotFound>
           <LogoIcon width="64px" mb="8px" />
-          <Heading size="xxl">404</Heading>
-          <Text mb="16px">{TranslateString(999, 'Oops, page not found.')}</Text>
-          <Button as="a" href="/" size="sm">
-            {TranslateString(999, 'Back Home')}
-          </Button>
+          <Text mb="16px">{TranslateString(999, 'loading...')}</Text>
         </StyledNotFound>
       </Page>
     )
   }
 
+  if (isInitialized && (loggedIn || MINTS > 0)) {
+    return (
+      <SmallCard isActive={walletOwnsNft}>
+        {fileType === 'mp4' && (
+          <video height="500px" width="100%" loop autoPlay muted>
+            <source src={originalImage} type="video/mp4" />
+            <track kind="captions" />
+          </video>
+        )}
+        {fileType !== 'mp4' && (
+          <Image src={originalImage} alt={name} originalLink={walletOwnsNft ? originalImage : null} />
+        )}
+        <CardBody>
+          <Header>
+            <Heading>{name}</Heading>
+            {isInitialized && walletCanClaim && (
+              <Tag outline variant="success">
+                {TranslateString(526, 'Available')}
+              </Tag>
+            )}
+            {isInitialized && tokenIds && (
+              <Tag outline variant="secondary">
+                {TranslateString(999, 'In Wallet')}
+              </Tag>
+            )}
+          </Header>
+          {isInitialized && loggedIn && walletCanClaim && isSupplyAvailable && (
+            <Button fullWidth onClick={onPresentClaimModal} mt="24px">
+              {TranslateString(999, 'Claim this NFT')} for {PRICE} LIFE
+            </Button>
+          )}
+          {isInitialized && walletOwnsNft && (
+            <Button fullWidth variant="secondary" mt="24px" onClick={onPresentTransferModal}>
+              {TranslateString(999, 'Transfer')}
+            </Button>
+          )}
+        </CardBody>
+        <CardFooter p="2">
+          {state.isOpen && (
+            <InfoBlock>
+              <Text as="p" color="textSubtle" mb="16px" style={{ textAlign: 'center' }}>
+                {description}
+              </Text>
+              <InfoRow>
+                <Text>{TranslateString(999, 'Number minted')}:</Text>
+                <Value>{MINTED}</Value>
+              </InfoRow>
+              <InfoRow>
+                <Text>{TranslateString(999, 'Owned By Me')}:</Text>
+                <Value>{MINTS}</Value>
+              </InfoRow>
+            </InfoBlock>
+          )}
+        </CardFooter>
+      </SmallCard>
+    )
+  }
+
   return (
-    <SmallCard isActive={walletOwnsNft}>
-      {fileType === 'mp4' && (
-        <video height="500px" width="100%" loop autoPlay muted>
-          <source src={originalImage} type="video/mp4" />
-          <track kind="captions" />
-        </video>
-      )}
-      {fileType !== 'mp4' && (
-        <Image src={originalImage} alt={name} originalLink={walletOwnsNft ? originalImage : null} />
-      )}
-      <CardBody>
-        <Header>
-          <Heading>{name}</Heading>
-          {isInitialized && walletCanClaim && (
-            <Tag outline variant="success">
-              {TranslateString(526, 'Available')}
-            </Tag>
-          )}
-          {isInitialized && tokenIds && (
-            <Tag outline variant="secondary">
-              {TranslateString(999, 'In Wallet')}
-            </Tag>
-          )}
-        </Header>
-        {isInitialized && loggedIn && walletCanClaim && isSupplyAvailable && (
-          <Button fullWidth onClick={onPresentClaimModal} mt="24px">
-            {TranslateString(999, 'Claim this NFT')} for {PRICE} LIFE
-          </Button>
-        )}
-        {isInitialized && walletOwnsNft && (
-          <Button fullWidth variant="secondary" mt="24px" onClick={onPresentTransferModal}>
-            {TranslateString(999, 'Transfer')}
-          </Button>
-        )}
-      </CardBody>
-      <CardFooter p="2">
-        {state.isOpen && (
-          <InfoBlock>
-            <Text as="p" color="textSubtle" mb="16px" style={{ textAlign: 'center' }}>
-              {description}
-            </Text>
-            <InfoRow>
-              <Text>{TranslateString(999, 'Number minted')}:</Text>
-              <Value>{MINTED}</Value>
-            </InfoRow>
-            <InfoRow>
-              <Text>{TranslateString(999, 'Owned By Me')}:</Text>
-              <Value>{MINTS}</Value>
-            </InfoRow>
-          </InfoBlock>
-        )}
-      </CardFooter>
-    </SmallCard>
+    <Page>
+      <StyledNotFound>
+        <LogoIcon width="64px" mb="8px" />
+        <Heading size="xxl">404</Heading>
+        <Text mb="16px">{TranslateString(999, 'Oops, page not found.')}</Text>
+        <Button as="a" href="/" size="sm">
+          {TranslateString(999, 'Back Home')}
+        </Button>
+      </StyledNotFound>
+    </Page>
   )
 }
 
