@@ -53,7 +53,7 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'DefiYeild Audit Coming Soon',
+    label: 'DefiYield Audit Coming Soon',
     icon: 'NftIcon',
     href: '#',
   },
