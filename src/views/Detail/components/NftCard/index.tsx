@@ -180,18 +180,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     <TransferNftModal nft={nft} tokenIds={tokenIds} onSuccess={handleSuccess} />,
   )
 
-  if (!isInitialized) {
-    return (
-      <Page>
-        <StyledNotFound>
-          <LogoIcon width="64px" mb="8px" />
-          <Text mb="16px">{TranslateString(999, 'loading...')}</Text>
-        </StyledNotFound>
-      </Page>
-    )
-  }
-
-  if (isInitialized && (loggedIn || MINTS > 0)) {
+  if (isInitialized && loggedIn && MINTS > 0) {
     return (
       <SmallCard isActive={walletOwnsNft}>
         {fileType === 'mp4' && (
@@ -253,11 +242,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     <Page>
       <StyledNotFound>
         <LogoIcon width="64px" mb="8px" />
-        <Heading size="xxl">404</Heading>
-        <Text mb="16px">{TranslateString(999, 'Oops, page not found.')}</Text>
-        <Button as="a" href="/" size="sm">
-          {TranslateString(999, 'Back Home')}
-        </Button>
+        <Text mb="16px">{TranslateString(999, 'loading...')}</Text>
       </StyledNotFound>
     </Page>
   )
