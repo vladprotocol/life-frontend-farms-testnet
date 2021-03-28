@@ -82,6 +82,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     amounts,
     maxMintByNft,
     prices,
+    myMints,
   } = useContext(NftProviderContext)
   const { account } = useWallet()
 
@@ -97,6 +98,12 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const { nftId, name, previewImage, originalImage, fileType, description, metadata } = nft
   const PRICE = prices[nft.nftId] || tokenPerBurn // here we get the price
+  const MINTS = myMints[nftId] || 0
+
+  const nftIndex = hasClaimed && hasClaimed.indexOf(nftId)
+
+  const MINTED = amounts[nftIndex] ? parseInt(amounts[nftIndex].toString()) : 0
+  const MAX_MINT = maxMintByNft[nftIndex] ? parseInt(maxMintByNft[nftIndex].toString()) : maxMintPerNft
 
   const hasClaimedArr: any = hasClaimed[0]
   const ownerByIdArr: any = ownerById[0]
@@ -110,10 +117,6 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   // console.log('?hasClaimed', hasClaimed)
   // console.log('?ownerById', ownerById)
-
-  // const nftIndex = hasClaimedArr && hasClaimedArr.indexOf(nftId)
-
-  // const youAreOwner = ownerByIdArr && ownerByIdArr[nftIndex] === account
 
   const walletCanClaim = !hasClaimed[nftId]
 
@@ -210,7 +213,11 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             </Text>
             <InfoRow>
               <Text>{TranslateString(999, 'Number minted')}:</Text>
-              <Value>{state.nftCount + state.nftBurnCount}</Value>
+              <Value>{MINTED}</Value>
+            </InfoRow>
+            <InfoRow>
+              <Text>{TranslateString(999, 'Owned By Me')}:</Text>
+              <Value>{MINTS}</Value>
             </InfoRow>
           </InfoBlock>
         )}
