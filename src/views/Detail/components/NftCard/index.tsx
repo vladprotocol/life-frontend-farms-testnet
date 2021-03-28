@@ -118,7 +118,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   // console.log('?hasClaimed', hasClaimed)
   // console.log('?ownerById', ownerById)
 
-  const walletCanClaim = !hasClaimed[nftId]
+  const walletCanClaim = maxMintPerNft === 0 || MINTED === undefined || MINTED < maxMintPerNft
 
   const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed
