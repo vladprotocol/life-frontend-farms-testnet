@@ -63,7 +63,7 @@ const App: React.FC = () => {
             <Route path="/nft">
               <Nft />
             </Route>
-            <Route path="/detail/:id" component={Detail} />
+            {account && <Route path="/detail/:id" component={Detail} />}
             {/* Redirect */}
             {/* <Route path="/staking"> */}
             {/*  <Redirect to="/pools" /> */}

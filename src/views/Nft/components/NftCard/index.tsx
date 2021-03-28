@@ -200,7 +200,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
         {isInitialized && loggedIn && MINTS > 0 && (
           <Button fullWidth onClick={() => history.push(`detail/${nftId}`)} mt="24px">
             <Text>
-              View NFT ({MINTED} of {MAX_MINT})
+              View NFT ({MINTED}/{MAX_MINT} MINTED)
             </Text>
           </Button>
         )}
