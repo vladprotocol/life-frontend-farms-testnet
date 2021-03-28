@@ -65,6 +65,7 @@ const Value = styled(Text)`
 
 const SmallCard = styled(Card)`
   width: 500px;
+  margin: 0 auto;
 `
 
 const NftCard: React.FC<NftCardProps> = ({ nft }) => {

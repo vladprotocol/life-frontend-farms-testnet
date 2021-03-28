@@ -19,15 +19,7 @@ const StyledNtfInfo = styled.div`
 const NftInfo = () => {
   const { canBurnNft } = useContext(NftProviderContext)
 
-  if (!canBurnNft) {
-    return <NftProgressSimple />
-  }
-
-  return (
-    <StyledNtfInfo>
-      <NftProgress />
-    </StyledNtfInfo>
-  )
+  return <NftProgressSimple />
 }
 
 export default NftInfo
