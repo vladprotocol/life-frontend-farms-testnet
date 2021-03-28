@@ -46,10 +46,10 @@ const config: MenuEntry[] = [
         label: 'Overview',
         href: 'https://vlad-finance.medium.com/introducing-vlad-token-and-the-path-to-immortality-ce96990fdf66/',
       },
-      {
-        label: 'Roadmap',
-        href: 'https://vlad-finance.medium.com/roadmap/',
-      },
+      // {
+      //   label: 'Roadmap',
+      //   href: 'https://vlad-finance.medium.com/roadmap/',
+      // },
     ],
   },
   {
