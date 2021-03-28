@@ -15,6 +15,10 @@ const StyledHero = styled.div`
   padding-bottom: 32px;
 `
 
+const CustomHeading = styled(Heading)`
+  text-align: center;
+`
+
 const Detail = (props) => {
   const TranslateString = useI18n()
   const { match } = props
@@ -26,9 +30,9 @@ const Detail = (props) => {
     <NftProvider>
       <Page>
         <StyledHero>
-          <Heading as="h1" size="xxl" color="#5ca269" mb="24px">
+          <CustomHeading as="h1" size="xxl" color="#5ca269" mb="24px">
             {nft1[0].name}
-          </Heading>
+          </CustomHeading>
         </StyledHero>
         <NftCard nft={nft1[0]} />
       </Page>
