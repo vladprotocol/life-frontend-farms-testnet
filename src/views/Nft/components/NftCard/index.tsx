@@ -221,7 +221,9 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
             </Text>
             <InfoRow>
               <Text>{TranslateString(999, 'Number minted')}:</Text>
-              <Value>{state.nftCount + state.nftBurnCount}</Value>
+              <Value>
+                {state.nftCount + state.nftBurnCount}/{MAX_MINT}
+              </Value>
             </InfoRow>
             <InfoRow>
               <Text>{TranslateString(999, 'Owned By Me')}:</Text>
