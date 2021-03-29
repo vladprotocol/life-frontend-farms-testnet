@@ -183,7 +183,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
     return (
       <SmallCard isActive={walletOwnsNft}>
         {fileType === 'mp4' && (
-          <video height="500px" loop autoPlay muted>
+          <video width="100%" loop autoPlay muted>
             <source src={originalImage} type="video/mp4" />
             <track kind="captions" />
           </video>
