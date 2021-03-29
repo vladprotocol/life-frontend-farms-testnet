@@ -5,7 +5,7 @@ import { allLanguages } from 'config/localisation/languageCodes'
 import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
 import { usePriceCakeBusd } from 'state/hooks'
-import { Menu as UikitMenu } from '@pancakeswap-libs/uikit'
+import { Menu as UikitMenu, Button } from '@pancakeswap-libs/uikit'
 import config from './config'
 import './style.css'
 import bscscanLogo from './bscscan.png'
@@ -103,11 +103,29 @@ const AudioPlayer = styled.audio`
   }
 `
 
+const CustomButton = styled(Button)`
+  height: 22px;
+  margin-left: 10px;
+`
+
+let vladValue = 0
+
 const Menu = (props) => {
   const { account, connect, reset } = useWallet()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = usePriceCakeBusd()
+
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=vlad-finance&vs_currencies=usd')
+    .then((res) => res.json())
+    .then(
+      (result) => {
+        vladValue = result['vlad-finance'].usd
+      },
+      (error) => {
+        vladValue = 0
+      },
+    )
 
   return (
     <div className="body-bg">
@@ -177,6 +195,7 @@ const Menu = (props) => {
                     src={pancakeLogo}
                     alt="Buy Life"
                   />
+                  <CustomButton variant="primary">$ {vladValue}</CustomButton>
                 </ul>
               </div>
             </div>

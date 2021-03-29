@@ -4,7 +4,7 @@ nav {
 
 nav ~ div > div:nth-child(1) {
 	position: relative!important;
-	height: 180vh;
+	height: 93vh;
 }
 
 
@@ -57,11 +57,11 @@ ul, li, a {
     margin-left: calc(var(--bs-gutter-x)/ -2);
 }
 .tp-vlad{
-    width: 20%;
+    width: 15%;
     flex: 0 0 auto;
 }
 .top-sm-nav {
-    width: 30%;
+    width: 35%;
     flex: 0 0 auto;
 }
 .tp-audio{
