@@ -99,13 +99,19 @@ const InlineDiv = styled.div`
 const AudioPlayer = styled.audio`
   margin-right: 10px;
   @media (max-width: 1300px) {
-    width: 50px;
+    width: 100px;
   }
 `
 
 const CustomButton = styled(Button)`
   height: 22px;
   margin-left: 10px;
+`
+
+const CustomI = styled.i`
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 `
 
 let vladValue = 0
@@ -146,26 +152,13 @@ const Menu = (props) => {
                 <div className="tp-inner">
                   <ul>
                     <li>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://soundcloud.com/dj_ezra_is_back/dj-ezra-live-vladhalla-the/s-RaJwB2A8UaP?p=a&c=1&utm_source=other&utm_medium=text&utm_campaign=social_sharing"
-                      >
-                        Listen to DJ Ezra live from Vladhalla!
+                      <span>
+                        Mr. Oppo - Journey to Vladhalla
                         <AudioPlayer controls>
-                          <source src="./vlad.mp3" type="audio/mpeg" />
+                          <source src="./mr-oppo.mp3" type="audio/mpeg" />
                           <track kind="captions" />
                         </AudioPlayer>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://soundcloud.com/dj_ezra_is_back/dj-ezra-live-vladhalla-the/s-RaJwB2A8UaP?p=a&c=1&utm_source=other&utm_medium=text&utm_campaign=social_sharing"
-                      >
-                        More DJ Ezra <img src={soundCloudLogo} alt="soundcloud" className="img-fluid" />
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -195,7 +188,12 @@ const Menu = (props) => {
                     src={pancakeLogo}
                     alt="Buy Life"
                   />
-                  <CustomButton variant="primary">$ {vladValue}</CustomButton>
+                  <CustomButton variant="primary">
+                    <CustomI>
+                      <img src={vladLogo} className="img-fluid" alt="Vlad Token" />
+                    </CustomI>
+                    $ {vladValue}
+                  </CustomButton>
                 </ul>
               </div>
             </div>

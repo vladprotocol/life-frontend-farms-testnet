@@ -197,3 +197,30 @@ audio::-webkit-media-controls-play-button,
 		width: 96%;
 	}
 }
+
+
+.tp-audio ul li a, .tp-inner ul li span{
+    display: flex;
+    align-items: center;
+}
+.tp-inner ul li span audio, .tp-inner ul li a img{
+    margin-left: 10px;
+}
+.tp-inner ul li a, .tp-inner ul li span{
+    margin-right: 10px;
+}
+.tp-inner ul li a, .tp-inner ul li span{
+    color:rgb(92, 162, 105);
+    font-size: 14px;
+}
+
+.top-sm-nav ul {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 678px) {
+    .top-sm-nav ul {
+        display:unset;
+    }
+}

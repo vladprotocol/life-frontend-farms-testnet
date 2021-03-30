@@ -50,6 +50,51 @@ const Nfts: Nft[] = [
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
+  {
+    name: 'Painted Pepe',
+    metadata: '',
+    description:
+      'As an homage to the original Vlad Pepes Drakul this retains his painted face hang him in your gallery for eternal viewing.',
+    previewImage: 'preview-painted-pepes.jpg',
+    originalImage: 'https://ipfs.io/ipfs/QmRqe92vpppkNS2aihmdvswHstAiHAF4jC2KUAiec5LKKk?filename=NFT-painted-pepes.mp4',
+    fileType: 'mp4',
+    blurImage: '',
+    sortOrder: 3,
+    nftId: 3,
+    tokenAmount: 10,
+    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
+    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
+  },
+  {
+    name: 'The path to Vladhalla',
+    metadata: '',
+    description: 'All who seek to find the path to Vladhalla must have strong hands along the way to immortality.',
+    previewImage: 'preview-path-to-vladhalla.jpeg',
+    originalImage:
+      'https://ipfs.io/ipfs/QmQWAeV3aAWD2Kbvxmtt4H874AEf7M7N5FcBos4iZbkRcj?filename=NFT-rare-path-to-vladhalla.mp4',
+    fileType: 'mp4',
+    blurImage: '',
+    sortOrder: 4,
+    nftId: 4,
+    tokenAmount: 10,
+    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
+    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
+  },
+  {
+    name: 'All Hail VLAD',
+    metadata: '',
+    description: 'A coin like no other. It grants the holder eternal life when stored in thier wallet.',
+    previewImage: 'preview-all-hail-vlad.jpeg',
+    originalImage:
+      'https://ipfs.io/ipfs/QmWmdegkuvXShBs47G4GPqxfwnVbtKY5pYeAoAN3Xy37KV?filename=NFT-rare-all-hail-vlad.mp4',
+    fileType: 'mp4',
+    blurImage: '',
+    sortOrder: 5,
+    nftId: 5,
+    tokenAmount: 10,
+    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
+    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
+  },
 ]
 
 export default Nfts
