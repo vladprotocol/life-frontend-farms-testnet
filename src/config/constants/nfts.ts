@@ -69,7 +69,7 @@ const Nfts: Nft[] = [
     name: 'The path to Vladhalla',
     metadata: '',
     description: 'All who seek to find the path to Vladhalla must have strong hands along the way to immortality.',
-    previewImage: 'preview-path-to-vladhalla.jpeg',
+    previewImage: 'preview-path-to-vladhalla.jpg',
     originalImage:
       'https://ipfs.io/ipfs/QmQWAeV3aAWD2Kbvxmtt4H874AEf7M7N5FcBos4iZbkRcj?filename=NFT-rare-path-to-vladhalla.mp4',
     fileType: 'mp4',
@@ -84,7 +84,7 @@ const Nfts: Nft[] = [
     name: 'All Hail VLAD',
     metadata: '',
     description: 'A coin like no other. It grants the holder eternal life when stored in thier wallet.',
-    previewImage: 'preview-all-hail-vlad.jpeg',
+    previewImage: 'preview-all-hail-vlad.jpg',
     originalImage:
       'https://ipfs.io/ipfs/QmWmdegkuvXShBs47G4GPqxfwnVbtKY5pYeAoAN3Xy37KV?filename=NFT-rare-all-hail-vlad.mp4',
     fileType: 'mp4',
