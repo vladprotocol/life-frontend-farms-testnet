@@ -20,6 +20,8 @@ const Nft = lazy(() => import('./views/Nft'))
 const Legendary = lazy(() => import('./views/Legendary'))
 const Epic = lazy(() => import('./views/Epic'))
 const MyCollection = lazy(() => import('./views/MyCollection'))
+const MyEpicCollection = lazy(() => import('./views/MyEpicCollection'))
+const MyLegendaryCollection = lazy(() => import('./views/MyLegendaryCollection'))
 const Detail = lazy(() => import('./views/Detail'))
 const LegendaryDetail = lazy(() => import('./views/LegendaryDetail'))
 const EpicDetail = lazy(() => import('./views/EpicDetail'))
@@ -76,6 +78,12 @@ const App: React.FC = () => {
             </Route>
             <Route path="/my-collection">
               <MyCollection />
+            </Route>
+            <Route path="/my-epic-collection">
+              <MyEpicCollection />
+            </Route>
+            <Route path="/my-legendary-collection">
+              <MyLegendaryCollection />
             </Route>
             <Route path="/detail/:id" component={Detail} />
             <Route path="/legendary-detail/:id" component={LegendaryDetail} />

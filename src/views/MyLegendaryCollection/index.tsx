@@ -35,7 +35,7 @@ const Nft = () => {
         <Page>
           <StyledHero>
             <Heading as="h1" size="xxl" color="#5ca269" mb="24px">
-              My Collection
+              My Legendary Collection
             </Heading>
             <Button onClick={() => history.push(`my-collection`)} mt="24px">
               Common and Rare

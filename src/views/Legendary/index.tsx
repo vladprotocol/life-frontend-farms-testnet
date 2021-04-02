@@ -29,16 +29,16 @@ const Nft = () => {
           <Heading as="h2" size="lg" color="#5ca269">
             {TranslateString(999, 'Trade in for LIFE, or keep for your collection!')}
           </Heading>
+          <Button onClick={() => history.push(`nft`)} mt="24px">
+            Common and Rare
+          </Button>
+          <Button onClick={() => history.push(`epic`)} mt="24px">
+            Epic
+          </Button>
+          <Button onClick={() => history.push(`legendary`)} mt="24px">
+            Legendary
+          </Button>
         </StyledHero>
-        <Button onClick={() => history.push(`nft`)} mt="24px">
-          Common and Rare
-        </Button>
-        <Button onClick={() => history.push(`epic`)} mt="24px">
-          Epic
-        </Button>
-        <Button onClick={() => history.push(`legendary`)} mt="24px">
-          Legendary
-        </Button>
         <NftInfo />
         <NftList />
       </Page>
