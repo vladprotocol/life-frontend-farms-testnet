@@ -102,7 +102,7 @@ const Nfts: Nft[] = [
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
- {
+  {
     name: 'Bank of Vladhalla',
     metadata: '',
     description: 'A coin like no other. It grants the holder eternal life when stored in thier wallet.',
