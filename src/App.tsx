@@ -21,6 +21,8 @@ const Legendary = lazy(() => import('./views/Legendary'))
 const Epic = lazy(() => import('./views/Epic'))
 const MyCollection = lazy(() => import('./views/MyCollection'))
 const Detail = lazy(() => import('./views/Detail'))
+const LegendaryDetail = lazy(() => import('./views/LegendaryDetail'))
+const EpicDetail = lazy(() => import('./views/EpicDetail'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -76,6 +78,8 @@ const App: React.FC = () => {
               <MyCollection />
             </Route>
             <Route path="/detail/:id" component={Detail} />
+            <Route path="/legendary-detail/:id" component={LegendaryDetail} />
+            <Route path="/epic-detail/:id" component={EpicDetail} />
             {/* Redirect */}
             {/* <Route path="/staking"> */}
             {/*  <Redirect to="/pools" /> */}
