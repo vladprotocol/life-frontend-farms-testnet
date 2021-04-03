@@ -102,22 +102,6 @@ const Nfts: Nft[] = [
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
-  {
-    name: 'Bank of Vladhalla',
-    metadata: '',
-    description: 'A coin like no other. It grants the holder eternal life when stored in thier wallet.',
-    previewImage: 'preview-all-hail-vlad.jpg',
-    originalImage:
-      'https://ipfs.io/ipfs/QmWmdegkuvXShBs47G4GPqxfwnVbtKY5pYeAoAN3Xy37KV?filename=NFT-rare-all-hail-vlad.mp4',
-    fileType: 'mp4',
-    blurImage: '',
-    sortOrder: 6,
-    nftId: 6,
-    tokenAmount: 100,
-    tokenSupply: 666,
-    nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
-    nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
-  },
 ]
 
 export default Nfts
