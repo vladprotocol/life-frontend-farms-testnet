@@ -65,7 +65,7 @@ const Nft = () => {
         <Page>
           <StyledHero>
             <Heading as="h1" size="xxl" color="#5ca269" mb="24px">
-              My Collection
+              My Base and Rare
             </Heading>
             <CustomButton onClick={() => history.push(`my-collection`)} mt="24px">
               Base and Rare NFTs
