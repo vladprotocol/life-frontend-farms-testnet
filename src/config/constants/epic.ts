@@ -1,6 +1,6 @@
 import { Nft } from './types'
 
-export const NftFarm = '0x61d55B8E38C8D0eE6C52105C0cc59498De0C478d'
+export const NftFarm = '0x16034F26aD4e187FaBF752976d35395d3d4639F1'
 export const NFT = '0xA81Ab2D03b9E3a62BDBb837d417A5E221F754E14'
 export const AMOUNT_TO_CLAIM = '10'
 
@@ -16,7 +16,7 @@ const Nfts: Nft[] = [
     fileType: 'mp4',
     blurImage: '',
     sortOrder: 0,
-    nftId: 6,
+    nftId: 0,
     tokenAmount: 350,
     tokenSupply: 66,
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
@@ -33,7 +33,7 @@ const Nfts: Nft[] = [
     fileType: 'mp4',
     blurImage: '',
     sortOrder: 1,
-    nftId: 7,
+    nftId: 1,
     tokenAmount: 350,
     tokenSupply: 66,
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
@@ -50,7 +50,7 @@ const Nfts: Nft[] = [
     fileType: 'png',
     blurImage: '',
     sortOrder: 2,
-    nftId: 8,
+    nftId: 2,
     tokenAmount: 350,
     tokenSupply: 66,
     nftFarmContract: '0x3627Ca89675b42489aD39619A92dd0Ce24CA90bB',
