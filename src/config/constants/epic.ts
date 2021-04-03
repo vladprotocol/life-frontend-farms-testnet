@@ -6,7 +6,7 @@ export const AMOUNT_TO_CLAIM = '10'
 
 const Nfts: Nft[] = [
   {
-    name: 'Silver Pepe',
+    name: 'Silver Pepes',
     metadata: '',
     description:
       "The count has had an epic existence sure, but it has not been without many attempts at his life. This artist's rendition pays homage to the time he was frozen in Carbonite ...oh wait, wrong story. Our bad, pretty slick tho right?",
@@ -40,7 +40,7 @@ const Nfts: Nft[] = [
     nftContract: '0xa521D5FA64D0aAdB4ee607BAb20142aA173e4392',
   },
   {
-    name: 'Gate of Vladhalla',
+    name: 'Gates of Vladhalla',
     metadata: '',
     description:
       'Tales have been written of the select few who have made it this far. The  sheer majesty of these very gates would make the hairs on their arms stand on end. Only the immortal shall pass through - will you?',

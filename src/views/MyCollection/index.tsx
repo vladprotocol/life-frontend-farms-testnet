@@ -68,13 +68,13 @@ const Nft = () => {
               My Collection
             </Heading>
             <CustomButton onClick={() => history.push(`my-collection`)} mt="24px">
-              Base and Rare
+              Base and Rare NFTs
             </CustomButton>
             <CustomButton variant="subtle" onClick={() => history.push(`my-epic-collection`)} mt="24px">
-              Epic
+              Epic NFTs
             </CustomButton>
             <GoldenButton onClick={() => history.push(`my-legendary-collection`)} mt="24px">
-              Legendary
+              Legendary NFTs
             </GoldenButton>
           </StyledHero>
           <NftInfo />

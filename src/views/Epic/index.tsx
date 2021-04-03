@@ -60,13 +60,13 @@ const Nft = () => {
             {TranslateString(999, 'Trade in for LIFE, or keep for your collection!')}
           </Heading>
           <CustomButton onClick={() => history.push(`nft`)} mt="24px">
-            Base and Rare
+            Base and Rare NFTs
           </CustomButton>
           <CustomButton variant="subtle" onClick={() => history.push(`epic`)} mt="24px">
-            Epic
+            Epic NFTs
           </CustomButton>
           <GoldenButton onClick={() => history.push(`legendary`)} mt="24px">
-            Legendary
+            Legendary NFTs
           </GoldenButton>
         </StyledHero>
         <NftInfo />
