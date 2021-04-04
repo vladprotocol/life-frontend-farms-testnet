@@ -68,6 +68,10 @@ const SmallCard = styled(Card)`
   margin: 0 auto;
 `
 
+const CustomButton = styled(Button)`
+  margin-left: 10px;
+`
+
 const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const [state, setState] = useState({
     isLoading: false,
@@ -211,9 +215,22 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
           )}
         </Header>
         {isInitialized && loggedIn && walletCanClaim && isSupplyAvailable && (
-          <Button fullWidth onClick={onPresentClaimModal} mt="24px">
+          <Button onClick={onPresentClaimModal} mt="24px">
             {TranslateString(999, 'Claim this NFT')} for {tokenAmount} LIFE
           </Button>
+        )}
+        {isInitialized && loggedIn && walletCanClaim && isSupplyAvailable && (
+          <CustomButton
+            onClick={() =>
+              window.open(
+                'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x50f4220C82c9325dC99f729C3328FB5c338BEaae',
+                '_blank',
+              )
+            }
+            mt="24px"
+          >
+            {TranslateString(999, 'Buy LIFE')}
+          </CustomButton>
         )}
         {isInitialized && walletOwnsNft && (
           <Button fullWidth variant="secondary" mt="24px" onClick={onPresentTransferModal}>
