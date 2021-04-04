@@ -123,7 +123,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const MINTED = amounts[nftIndex] ? parseInt(amounts[nftIndex].toString()) : 0
   const MAX_MINT = maxMintByNft[nftIndex] ? parseInt(maxMintByNft[nftIndex].toString()) : maxMintPerNft
 
-  const walletCanClaim = maxMintPerNft === 0 || MINTED === undefined || MINTED < maxMintPerNft
+  const walletCanClaim = maxMintPerNft === 0 || MINTED === undefined || MINTED < MAX_MINT
 
   let price = 1200
 
@@ -133,7 +133,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   // console.log('CONTRACT/GALLERY INFO:', totalSupplyDistributed, rarity, priceMultiplier, maxMintPerNft, tokenPerBurn)
   // console.log('LIMITS BY NFT:', tokenPerBurn, amounts, maxMintByNft, prices)
-  // console.log(nftId, 'walletCanClaim', walletCanClaim, maxMintPerNft, MINTED, MAX_MINT)
+  console.log(nftId, 'walletCanClaim', walletCanClaim, MAX_MINT, MINTED, MAX_MINT)
 
   const tokenIds = getTokenIds(nftId)
   const isSupplyAvailable = currentDistributedSupply < totalSupplyDistributed

@@ -130,7 +130,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
 
   const MINTS = myMints[nftIndex] || 0
 
-  const walletCanClaim = maxMintPerNft === 0 || MINTED === undefined || MINTED < maxMintPerNft
+  const walletCanClaim = maxMintPerNft === 0 || MINTED === undefined || MINTED < MAX_MINT
 
   let price = 1200
 
