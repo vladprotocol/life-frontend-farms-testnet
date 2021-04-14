@@ -117,7 +117,7 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
   const nftIndex = hasClaimed && hasClaimed.indexOf(nftId)
 
   const MINTED = amounts[nftIndex] ? parseInt(amounts[nftIndex].toString()) : 0
-  const MAX_MINT = maxMintByNft[nftIndex] ? parseInt(maxMintByNft[nftIndex].toString()) : maxMintPerNft
+  const MAX_MINT = maxMintByNft[nftIndex] ? parseInt(maxMintByNft[nftIndex].toString()) : 6
 
   const hasClaimedArr: any = hasClaimed[0]
   const ownerByIdArr: any = ownerById[0]
