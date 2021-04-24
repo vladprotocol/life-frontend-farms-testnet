@@ -14,6 +14,7 @@ import telegramLogo from './telegram.svg'
 import twitterLogo from './twitter.svg'
 import mediumLogo from './medium.svg'
 import vladLogo from './vlad-circle.png'
+import alifeLogo from './alife.png'
 import lifeLogo from './life.png'
 import bgFooter from './bg-footer.jpg'
 import soundCloudLogo from './soundcloud.png'
@@ -135,7 +136,7 @@ const Menu = (props) => {
     .then((res) => res.json())
     .then(
       (result) => {
-        vladValue = result['vlad-finance'].usd
+        vladValue = Math.round(result['vlad-finance'].usd * 100) / 100
       },
       (error) => {
         vladValue = 0
@@ -168,7 +169,7 @@ const Menu = (props) => {
                           <track kind="captions" />
                         </AudioPlayer>
                         <AudioDescriptionA href="https://soundcloud.app.goo.gl/kHiyk" target="_blank" rel="noreferrer">
-                          Enjoying $LIFE! by DJ Ezra Is Back! on #SoundCloud
+                          Enjoying $ALIFE! by DJ Ezra Is Back! on #SoundCloud
                         </AudioDescriptionA>
                       </AudioDescription>
                     </li>

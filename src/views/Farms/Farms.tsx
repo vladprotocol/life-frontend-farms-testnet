@@ -45,8 +45,12 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   const [stakedOnly, setStakedOnly] = useState(false)
 
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier === '1')
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.lpSymbol !== 'BNB-BUSD LP')
+  const activeFarms = farmsLP.filter(
+    (farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier !== '0X' && farm.lpSymbol !== 'BNB-BUSD LP',
+  )
+  const inactiveFarms = farmsLP.filter(
+    (farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier === '0X' && farm.lpSymbol !== 'BNB-BUSD LP',
+  )
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
@@ -62,7 +66,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const cakeRewardPerBlock = new BigNumber(farm.lifePerBlock || 1)
+        const cakeRewardPerBlock = new BigNumber(farm.tokenPerBlock || 1)
           .times(new BigNumber(farm.poolWeight))
           .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
@@ -124,7 +128,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/life/8.png" alt="illustration" width={1352} height={587} responsive />
+      <Image src="/images/alife/8.png" alt="illustration" width={1352} height={587} responsive />
     </Page>
   )
 }

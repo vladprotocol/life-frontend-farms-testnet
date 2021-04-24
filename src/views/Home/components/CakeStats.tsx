@@ -27,14 +27,14 @@ const CakeStats = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = useBurnedBalance(getCakeAddress())
   const farms = useFarms()
-  const lifePrice = usePriceCakeBusd()
+  const alifePrice = usePriceCakeBusd()
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0)
   const cakeSupply = getBalanceNumber(circSupply)
-  const marketCap = lifePrice.times(circSupply)
+  const marketCap = alifePrice.times(circSupply)
 
-  let lifePerBlock = 0
-  if (farms && farms[0] && farms[0].lifePerBlock) {
-    lifePerBlock = new BigNumber(farms[0].lifePerBlock).div(new BigNumber(10).pow(18)).toNumber()
+  let tokenPerBlock = 0
+  if (farms && farms[0] && farms[0].tokenPerBlock) {
+    tokenPerBlock = new BigNumber(farms[0].tokenPerBlock).div(new BigNumber(10).pow(18)).toNumber()
   }
 
   return (
@@ -60,9 +60,9 @@ const CakeStats = () => {
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New LIFE/block')}</Text>
+          <Text fontSize="14px">{TranslateString(540, 'New ALIFE/block')}</Text>
           <Text bold fontSize="14px">
-            {lifePerBlock}
+            {tokenPerBlock}
           </Text>
         </Row>
       </CardBody>

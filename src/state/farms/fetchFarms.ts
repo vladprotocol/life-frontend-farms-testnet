@@ -92,7 +92,7 @@ const fetchFarms = async () => {
         }
       }
 
-      const [info, totalAllocPoint, lifePerBlock] = await multicall(masterchefABI, [
+      const [info, totalAllocPoint, tokenPerBlock] = await multicall(masterchefABI, [
         {
           address: getMasterChefAddress(),
           name: 'poolInfo',
@@ -104,7 +104,7 @@ const fetchFarms = async () => {
         },
         {
           address: getMasterChefAddress(),
-          name: 'lifePerBlock',
+          name: 'tokenPerBlock',
         },
       ])
 
@@ -119,7 +119,7 @@ const fetchFarms = async () => {
         poolWeight: poolWeight.toNumber(),
         multiplier: `${allocPoint.div(100).toString()}X`,
         depositFeeBP: info.depositFeeBP,
-        lifePerBlock: new BigNumber(lifePerBlock).toNumber(),
+        tokenPerBlock: new BigNumber(tokenPerBlock).toNumber(),
       }
     }),
   )
